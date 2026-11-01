@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="en">
+<head><meta name="robots" content="noindex, nofollow"><meta property="og:type" content="website"><meta property="og:url" content="https://jordangoldstein87.github.io/empire/hub.html"><meta property="og:title" content="The Citadel"><meta property="og:description" content="The hub behind Empire Glassworks and Empire Smokes."><meta property="og:image" content="https://jordangoldstein87.github.io/empire/img/og-hub.jpg?v=1"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://jordangoldstein87.github.io/empire/img/og-hub.jpg?v=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Citadel</title>
+<meta name="description" content="The Citadel: every Empire business connected in one place, with the numbers going wherever you need them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&family=Jost:wght@400;500;600&display=swap">
+<style>
+/* The hub pitch for a client's management team: one long scroll, filled in from the client's pitch.json.
+   In Empire's own colors: off-white, black, terracotta and dusty blue from empireglassworks.com. */
+:root {
+  --paper: #f7f5f4; --paper-2: #efebe7; --card: #ffffff; --ink: #111111; --ink-2: #424242; --line: #e2ddd8;
+  --hub: #111111; --hub-2: #1f1e1d; --hub-ink: #f7f5f4; --hub-soft: #b9b2ab; --gold: #c35121; --brick: #c35121; --bourbon: #c35121;
+  --display: "Arimo", "Helvetica Neue", Arial, sans-serif; --sc: "Jost", "Helvetica Neue", Arial, sans-serif;
+  --body: "Jost", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #181613; --paper-2: #211e1a; --card: #24211d; --ink: #ece6da; --ink-2: #b4ab9b; --line: #3a352f; --gold: #d2ae63; --brick: #d0806c; --bourbon: #d39556; color-scheme: dark } }
+:root[data-theme="dark"] { --paper: #181613; --paper-2: #211e1a; --card: #24211d; --ink: #ece6da; --ink-2: #b4ab9b; --line: #3a352f; --gold: #d2ae63; --brick: #d0806c; --bourbon: #d39556; color-scheme: dark }
+
+* { box-sizing: border-box }
+html { scroll-behavior: smooth; overflow-x: clip } body { overflow-x: clip } @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -.015em; line-height: 1.05; margin: 0; text-wrap: balance }
+p { margin: 0 }
+img { display: block; max-width: 100% }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 max(20px, env(safe-area-inset-left, 0px)) }
+.eyebrow { font: 600 16px var(--sc); letter-spacing: .18em; text-transform: uppercase; color: var(--bourbon) }
+.sect { padding: clamp(80px, 12vh, 140px) 0 }
+.head { display: grid; gap: 14px; max-width: 760px; margin-bottom: clamp(36px, 6vh, 60px) }
+.head h2 { font-size: clamp(40px, 5.6vw, 72px) }
+.head p { font-size: clamp(18px, 1.6vw, 21px); color: var(--ink-2); max-width: 46ch }
+.rise { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease }
+.rise.in { opacity: 1; transform: none }
+/* ?cap: screenshots skip the fade so nothing is caught mid-way */
+.cap .rise { opacity: 1; transform: none; transition: none } .cap .ws-view { animation: none } .cap .bar i::after { transform: scaleX(1); transition: none } .cap .hero > img { animation: none }
+@media (prefers-reduced-motion: reduce) { .rise { opacity: 1; transform: none } * { animation: none !important } }
+
+/* each logo in its own brand color, from its shape */
+.lg { position: relative; display: inline-block }
+.lg img { height: var(--h, 26px); width: auto; visibility: hidden }
+.lg::after { content: ""; position: absolute; inset: 0; background: var(--c); -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat }
+.lg.raw img { visibility: visible } .lg.raw::after { display: none }
+
+/* hero */
+.hero { position: relative; min-height: 100svh; display: grid; align-items: end; color: #ffffff; overflow: hidden }
+.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: drift 24s ease-out both }
+@keyframes drift { from { transform: scale(1.08) } to { transform: scale(1) } }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.15) 35%, rgba(0,0,0,.82)) }
+.hero .wrap { position: relative; z-index: 1; padding-bottom: clamp(56px, 10vh, 110px); display: grid; gap: 20px }
+.hero .eyebrow { color: #d2815f }
+.hero h1 { font-size: clamp(50px, 7vw, 104px); max-width: 13ch }
+.hero p { font-size: clamp(19px, 1.8vw, 24px); max-width: 34ch; color: #ece7e2 }
+.topbar { position: absolute; z-index: 2; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: calc(20px + env(safe-area-inset-top, 0px)) max(20px, 4vw) 40px; background: linear-gradient(180deg, rgba(0,0,0,.7), rgba(0,0,0,.35) 60%, transparent) }
+.topbar svg { width: clamp(180px, 17vw, 250px); height: auto; filter: drop-shadow(0 2px 10px rgba(0,0,0,.35)) }
+/* Empire's lockup: the castle-in-flames mark beside the hub name */
+.lockup { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none }
+.lockup img { width: 52px; height: 52px; border-radius: 50%; background: #fff; flex: none }
+.lockup b { display: block; font: 700 clamp(22px, 2.2vw, 28px)/1 var(--display); letter-spacing: -.01em }
+.lockup small { display: block; font: 500 11.5px var(--sc); letter-spacing: .2em; text-transform: uppercase; color: #d2815f; margin-top: 5px }
+.topbar span { font: 600 14px var(--sc); letter-spacing: .2em; text-transform: uppercase; color: #d2815f; text-shadow: 0 1px 8px rgba(0,0,0,.5) }
+@media (max-width: 560px) { .topbar span { display: none } }
+.tc-mark { display: inline-flex; align-items: center; gap: 12px; font: 600 15px var(--sc); letter-spacing: .2em; text-transform: uppercase; color: #ffffff }
+.tc-mark i { width: 34px; height: 34px; border-radius: 50%; border: 1px solid #d2815f; display: grid; place-items: center }
+.tc-mark i::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: #d2815f }
+.down { position: absolute; z-index: 1; right: max(20px, 4vw); bottom: clamp(56px, 10vh, 110px); width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(231,194,122,.6); display: grid; place-items: center }
+.down svg { width: 22px; stroke: #ffffff; fill: none; stroke-width: 1.6; animation: bob 2.2s ease-in-out infinite }
+@keyframes bob { 50% { transform: translateY(5px) } }
+
+/* the flow: in, The Citadel, out */
+.flow { display: grid; grid-template-columns: 1fr 64px minmax(300px, 1.15fr) 64px 1fr; align-items: center }
+.col { display: grid; gap: 10px }
+.col h3 { font: 600 15px var(--sc); letter-spacing: .18em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 4px }
+.chip { display: flex; align-items: center; gap: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 15.5px; line-height: 1.3 }
+.chip b { font-weight: 600; display: block }
+.chip span { color: var(--ink-2); font-size: 13.5px }
+.chip svg { flex: none; width: 22px; height: 22px; stroke: var(--bourbon); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round }
+.col.sends .chip svg { stroke: #3f6493 }
+.pipe { height: 100%; min-height: 200px; position: relative }
+.pipe::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: repeating-linear-gradient(90deg, var(--gold) 0 10px, transparent 10px 20px); background-size: 20px 2px; animation: flowx 1s linear infinite; opacity: .8 }
+@keyframes flowx { to { background-position: 20px 0 } }
+.pipe::after { content: ""; position: absolute; right: -2px; top: calc(50% - 5px); border: 6px solid transparent; border-left: 8px solid var(--gold); border-right: 0 }
+.hub { background: var(--hub); color: var(--hub-ink); border-radius: 22px; padding: 28px 24px 24px; display: grid; gap: 18px; box-shadow: 0 30px 70px rgba(0,0,0,.28); position: relative }
+.hub-top { text-align: center; display: grid; gap: 4px }
+.hub-top .k { font: 600 13px var(--sc); letter-spacing: .22em; text-transform: uppercase; color: var(--hub-soft) }
+.hub-top b { font: 500 40px/1 var(--display) }
+.hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px }
+.hub-grid .t { background: #ffffff; border-radius: 8px; height: 50px; display: grid; place-items: center; padding: 6px 10px }
+.hub-grid .t .lg img { --h: 22px; max-width: 100% }
+.hub-homes { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; font-size: 13.5px; color: var(--hub-soft); border-top: 1px solid #34312f; padding-top: 14px }
+.hub-homes span { display: flex; gap: 7px; align-items: center }
+.hub-homes svg { width: 14px; stroke: var(--hub-soft); fill: none; stroke-width: 2 }
+
+/* one view: the numbers */
+.dash { background: var(--hub); color: var(--hub-ink); border-radius: 22px; padding: clamp(20px, 3vw, 34px); display: grid; gap: 22px; box-shadow: 0 30px 80px rgba(0,0,0,.25) }
+.dash-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap }
+.dash-top b { font: 500 30px var(--display) }
+.dash-top span { font-size: 13px; color: var(--hub-soft); border: 1px solid #34312f; border-radius: 20px; padding: 5px 12px }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px }
+.kpi { background: var(--hub-2); border-radius: 14px; padding: 18px; display: grid; gap: 6px }
+.kpi .k { font-size: 13px; color: var(--hub-soft) }
+.kpi b { font: 500 clamp(34px, 3.6vw, 48px)/1 var(--display) }
+.kpi .d { font-size: 13px; color: #e9b99f }
+.ring { --p: 73; width: 64px; height: 64px; border-radius: 50%; background: conic-gradient(#d2815f calc(var(--p) * 1%), #34312f 0); display: grid; place-items: center; justify-self: end; margin-top: -48px }
+.ring::after { content: ""; width: 48px; height: 48px; border-radius: 50%; background: var(--hub-2) }
+.dash-rows { display: grid; grid-template-columns: 1.3fr 1fr; gap: 12px }
+.panel { background: var(--hub-2); border-radius: 14px; padding: 18px 20px; display: grid; gap: 12px; align-content: start }
+.panel h4 { margin: 0; font: 600 14px var(--sc); letter-spacing: .16em; text-transform: uppercase; color: var(--hub-soft) }
+.bar { display: grid; grid-template-columns: 120px 1fr 74px; gap: 12px; align-items: center; font-size: 14px }
+.bar i { height: 10px; border-radius: 5px; background: #34312f; position: relative; overflow: hidden }
+.bar i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: calc(var(--w) * 1%); background: var(--c, #a9c6a6); border-radius: 5px; transform-origin: left; transform: scaleX(0); transition: transform 1.2s ease .2s }
+.in .bar i::after { transform: scaleX(1) }
+.bar em { font-style: normal; text-align: right; font-variant-numeric: tabular-nums }
+.wk { display: grid; grid-template-columns: repeat(8, 1fr); gap: 5px }
+.wk span { aspect-ratio: 1; border-radius: 4px; background: #34312f }
+.wk span.b { background: #d2815f } .wk span.h { background: #8c7a4f }
+.wk-key { display: flex; gap: 14px; font-size: 12.5px; color: var(--hub-soft) }
+.wk-key i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px }
+.sample { font-size: 13px; color: var(--ink-2); margin-top: 14px }
+
+/* teams */
+.teams { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px }
+@media (max-width: 1100px) { .teams { grid-template-columns: 1fr 1fr } }
+.team { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 28px 26px; display: grid; gap: 14px; align-content: start }
+.team .ic { width: 48px; height: 48px; border-radius: 50%; background: var(--hub); display: grid; place-items: center }
+.team .ic svg { width: 22px; stroke: #d2815f; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round }
+.team h3 { font-size: 28px }
+.team ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px }
+.team li { display: flex; gap: 10px; font-size: 16px; line-height: 1.4 }
+.team li::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 9px }
+.team .sees { font-size: 14px; color: var(--ink-2); border-top: 1px solid var(--line); padding-top: 12px }
+
+/* data out: examples */
+.outs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px }
+.out { min-width: 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; display: grid; grid-template-rows: auto 1fr }
+.out .vis { overflow: hidden; background: var(--paper); border-bottom: 1px solid var(--line); padding: 22px; min-height: 230px; display: grid; place-items: center }
+.out .txt { padding: 20px 22px 24px; display: grid; gap: 6px; align-content: start }
+.out h3 { font-size: 28px }
+.out p { color: var(--ink-2); font-size: 15.5px }
+.out.w3 { grid-column: span 3 } .out.w2 { grid-column: span 2 }
+/* mock: email */
+.mail { width: 100%; max-width: 420px; background: #fff; color: #111111; border-radius: 10px; box-shadow: 0 14px 34px rgba(0,0,0,.12); font-size: 13px; overflow: hidden }
+.mail .mh { padding: 12px 16px; border-bottom: 1px solid #ece7e2; display: grid; gap: 2px }
+.mail .mh b { font-size: 14px } .mail .mh span { color: #6b6560; font-size: 12px }
+.mail .mb { padding: 14px 16px; display: grid; gap: 10px }
+.mail .big { font: 500 30px/1 var(--display) }
+.mail .row3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px }
+.mail .row3 div { background: #ffffff; border-radius: 6px; padding: 8px; display: grid; gap: 2px; font-size: 11.5px; color: #6b5f50 }
+.mail .row3 b { font: 600 15px var(--body); color: #111111 }
+/* mock: ledger */
+.ledger { width: 100%; max-width: 420px; background: #fff; color: #111111; border-radius: 10px; box-shadow: 0 14px 34px rgba(0,0,0,.12); font-size: 12.5px; overflow: hidden }
+.ledger .lh { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #2ca01c; color: #fff; font-weight: 600 }
+.ledger .lh span { font-weight: 400; opacity: .9; font-size: 11.5px }
+.ledger table { width: 100%; border-collapse: collapse }
+.ledger td { padding: 8px 14px; border-top: 1px solid #ece7e2 } .ledger td:last-child { text-align: right; font-variant-numeric: tabular-nums }
+.ledger td .c { display: inline-block; font-size: 10.5px; background: #f1ece2; border-radius: 4px; padding: 1px 6px; margin-left: 6px; color: #6b5f50 }
+/* mock: text */
+.phone { width: 230px; background: #111; border-radius: 30px; padding: 12px; box-shadow: 0 14px 34px rgba(0,0,0,.2) }
+.phone .scr { background: #f2f2f6; border-radius: 20px; padding: 14px 10px 18px; display: grid; gap: 8px; font: 13px/1.35 -apple-system, system-ui, sans-serif; color: #111 }
+.phone .who { text-align: center; font-size: 11px; color: #666 }
+.bub { background: #e5e5ea; border-radius: 16px; padding: 8px 11px; max-width: 88% }
+.bub.me { background: #2f7d4f; color: #fff; justify-self: end }
+/* mock: feed */
+.feed { display: grid; grid-template-columns: auto 34px auto; align-items: center; gap: 8px; width: 100%; max-width: 440px }
+.feed .src { background: var(--hub); color: var(--hub-ink); border-radius: 12px; padding: 14px; font: 500 22px var(--display); text-align: center; line-height: 1 }
+.feed .src span { display: block; font: 11px var(--body); color: var(--hub-soft); margin-top: 4px }
+.feed .ln { height: 2px; background: repeating-linear-gradient(90deg, var(--gold) 0 6px, transparent 6px 12px); animation: flowx .8s linear infinite; background-size: 12px 2px }
+.feed .dst { display: grid; gap: 6px }
+.feed .dst span { background: #fff; color: #111111; border: 1px solid #e3dccd; border-radius: 8px; padding: 7px 12px; font-size: 13px; display: flex; align-items: center; gap: 8px; white-space: nowrap }
+.feed .dst i { width: 8px; height: 8px; border-radius: 50%; background: var(--c) }
+/* mock: one-pager */
+.sheet { width: 200px; aspect-ratio: 8.5 / 11; background: #fff; border-radius: 4px; box-shadow: 0 14px 34px rgba(0,0,0,.14); padding: 16px; display: grid; gap: 8px; align-content: start; color: #111111; transform: rotate(-2deg) }
+.sheet b { font: 500 18px var(--display) } .sheet .k { font: 600 8px var(--sc); letter-spacing: .2em; color: #9c5a26 }
+.sheet .bars { display: flex; align-items: end; gap: 5px; height: 60px; border-bottom: 1px solid #e7dfd0 }
+.sheet .bars i { flex: 1; background: #111111; border-radius: 2px 2px 0 0 } .sheet .bars i:nth-child(even) { background: #d2815f }
+.sheet .ln2 { height: 6px; background: #efe8db; border-radius: 3px } .sheet .ln2.s { width: 70% }
+
+/* things we can build */
+.builds { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px }
+.bld { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: grid; gap: 10px; align-content: start; transition: transform .25s, box-shadow .25s }
+.bld:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(0,0,0,.08) }
+.bld svg { width: 26px; height: 26px; stroke: var(--bourbon); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round }
+.bld h3 { font-size: 25px }
+.bld p { font-size: 15px; color: var(--ink-2); line-height: 1.45 }
+.bld .for { font: 600 12px var(--sc); letter-spacing: .14em; text-transform: uppercase; color: #3f6493 }
+
+/* marketing + easy pages */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px }
+.pane { border-radius: 22px; padding: clamp(26px, 3.4vw, 44px); display: grid; gap: 18px; align-content: start }
+.pane.dark { background: var(--hub); color: var(--hub-ink) }
+.pane.light { background: var(--card); border: 1px solid var(--line) }
+.pane h2 { font-size: clamp(36px, 4vw, 52px) }
+.pane .eyebrow { color: #d2815f } .pane.light .eyebrow { color: var(--bourbon) }
+.list4 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 22px }
+.list4 div { display: grid; gap: 3px }
+.list4 b { font: 500 23px var(--display) }
+.list4 span { font-size: 14.5px; opacity: .78; line-height: 1.45 }
+.editor { background: var(--paper-2); border-radius: 14px; padding: 14px; display: grid; gap: 10px; font-size: 14px }
+.editor .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px }
+.editor .row span { color: var(--ink-2); font-size: 13px }
+.editor .btn { background: var(--hub); color: #fff; border-radius: 6px; padding: 6px 12px; font-size: 13px; font-weight: 600 }
+.editor .typing::after { content: "|"; animation: blink 1s steps(1) infinite; margin-left: 1px; color: var(--bourbon) }
+@keyframes blink { 50% { opacity: 0 } }
+
+/* tailored */
+.tail { background: var(--hub); color: var(--hub-ink); text-align: center }
+.tail .wrap { display: grid; gap: 22px; justify-items: center }
+.tail h2 { font-size: clamp(48px, 7vw, 96px); max-width: 13ch }
+.tail p { font-size: clamp(19px, 1.7vw, 23px); color: #d7e2d3; max-width: 40ch }
+.tail .eyebrow { color: #d2815f }
+.uses { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 820px; margin-top: 8px }
+.uses button { border: 1px solid #4b5c51; background: none; color: var(--hub-ink); border-radius: 30px; padding: 10px 18px; font: 500 15px var(--body); cursor: pointer; transition: background .2s, border-color .2s }
+.uses button[aria-pressed="true"] { background: #d2815f; border-color: #d2815f; color: #111111 }
+.uses-k { font-size: 15px; color: var(--hub-soft) }
+/* who runs what: a short note to Jordan, opened in their own email app */
+.who-form { width: 100%; max-width: 720px; margin-top: 28px; background: var(--hub-2); border: 1px solid #34312f; border-radius: 20px; padding: clamp(22px, 3vw, 34px); display: grid; gap: 14px; text-align: left }
+.who-form h3 { font-size: clamp(28px, 3vw, 38px); color: var(--hub-ink) }
+.who-form > p { color: #cfdccb; font-size: 16px; max-width: none }
+.who-form .two-f { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+.who-form label { display: grid; gap: 6px; font: 600 12.5px var(--sc); letter-spacing: .14em; text-transform: uppercase; color: var(--hub-soft) }
+.who-form input, .who-form textarea { font: 400 16px/1.5 var(--body); color: var(--hub-ink); background: #1a231e; border: 1px solid #44554a; border-radius: 10px; padding: 11px 13px; width: 100%; outline: none }
+.who-form input:focus, .who-form textarea:focus { border-color: #d2815f }
+.who-form textarea { min-height: 130px; resize: vertical }
+.who-form ::placeholder { color: #7f9286 }
+.who-form { position: relative }
+.who-form .send:disabled { opacity: .7; cursor: default }
+.who-form .send { justify-self: start; border: 0; border-radius: 10px; background: #d2815f; color: #111111; font: 600 16px var(--body); padding: 13px 22px; cursor: pointer }
+.who-form .sent { font-size: 14px; color: #e9b99f }
+.who-form .quote1 { font: 500 22px/1.25 var(--display); color: var(--hub-ink); max-width: none; border-top: 1px solid #34312f; padding-top: 14px }
+/* how it comes together: the timeline and what it costs */
+.howto { width: 100%; max-width: 1080px; margin-top: 34px; background: #f7f5f4; color: #111111; border-radius: 22px; padding: clamp(26px, 3.6vw, 46px); display: grid; gap: 22px; text-align: left }
+.howto .eyebrow { color: #9c5a26 }
+.howto h3 { font-size: clamp(32px, 3.6vw, 46px) }
+.tl { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; position: relative }
+.tl::before { content: ""; position: absolute; top: 19px; left: 20px; right: 20px; height: 2px; background: linear-gradient(90deg, #d2815f, #c35121) }
+.tl li { position: relative; display: grid; gap: 6px; align-content: start }
+.tl i { width: 40px; height: 40px; border-radius: 50%; background: #111111; color: #d2815f; display: grid; place-items: center; font: 600 17px var(--body); font-style: normal; margin-bottom: 8px; position: relative; box-shadow: 0 0 0 5px #f7f5f4 }
+.tl li.done i { background: #c35121; color: #fff }
+.tl .when { font: 600 13px var(--sc); letter-spacing: .14em; text-transform: uppercase; color: #9c5a26 }
+.tl b { font: 500 24px/1.15 var(--display) }
+.tl p { font-size: 15px; color: #5d554b; max-width: none; line-height: 1.5 }
+.costs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; border-top: 1px solid #d9d0bf; padding-top: 22px }
+.costs div { background: #ffffff; border: 1px solid #e3dccd; border-radius: 14px; padding: 16px 18px; display: grid; gap: 4px; align-content: start }
+.costs span { font: 600 13px var(--sc); letter-spacing: .14em; text-transform: uppercase; color: #3f6493 }
+.costs p { font-size: 15px; color: #111111; max-width: none; line-height: 1.5 }
+.costs dl { margin: 0; display: grid; gap: 2px }
+.costs dt { font-weight: 600; font-size: 15px; color: #111111; margin-top: 6px } .costs dt:first-child { margin-top: 0 }
+.costs dd { margin: 0; font-size: 15px; color: #111111; line-height: 1.5 }
+@media (max-width: 860px) {
+  .tl { grid-template-columns: 1fr; gap: 20px } .tl::before { top: 20px; bottom: 90px; left: 19px; right: auto; width: 2px; height: auto; background: linear-gradient(180deg, #d2815f, #c35121) }
+  .tl li { grid-template-columns: 40px 1fr; column-gap: 16px } .tl li i { grid-row: span 3; margin: 0 } .tl li > :not(i) { grid-column: 2 }
+  .costs { grid-template-columns: 1fr }
+}
+@media (max-width: 560px) { .who-form .two-f { grid-template-columns: 1fr } }
+.foot { background: #161d19; color: #8fa596; text-align: center; padding: 30px 20px; font-size: 13px }
+
+/* the front door: sliders through the websites */
+.front .head { max-width: 860px }
+.feat { display: grid; grid-template-columns: 1fr 1.9fr; gap: clamp(24px, 4vw, 56px); align-items: center; margin-bottom: clamp(60px, 10vh, 110px) }
+.feat.rev { grid-template-columns: 1.9fr 1fr } .feat.rev .feat-t { order: 2 }
+.feat-t { display: grid; gap: 14px }
+.feat-t h3 { font-size: clamp(34px, 3.6vw, 50px) }
+.feat-t p { font-size: 18px; color: var(--ink-2) }
+.feat-t .cap { font: 500 22px/1.25 var(--display); color: var(--ink); min-height: 2.6em; transition: opacity .3s }
+.slider { position: relative; display: grid; gap: 14px }
+.track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 14px; box-shadow: 0 30px 70px rgba(40,25,10,.22), 0 0 0 1px var(--line) }
+.track::-webkit-scrollbar { display: none }
+.slide { flex: 0 0 100%; scroll-snap-align: start; position: relative; background: #f7f5f4 }
+.slide img.shot { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top }
+.slide .tag { position: absolute; left: 14px; bottom: 14px; display: flex; align-items: center; gap: 12px; background: rgba(251,248,242,.95); border-radius: 12px; padding: 9px 14px; box-shadow: 0 8px 24px rgba(0,0,0,.18) }
+.slide .tag .lg img { --h: 24px }
+.slide .tag span { font: 600 13px var(--sc); letter-spacing: .14em; text-transform: uppercase; color: #6b5a48 }
+.ctrl { display: flex; align-items: center; justify-content: space-between; gap: 12px }
+.dots { display: flex; gap: 7px; flex-wrap: wrap }
+.dots button { width: 9px; height: 9px; border-radius: 50%; border: 0; padding: 0; background: var(--line); cursor: pointer; transition: background .2s, width .2s }
+.dots button[aria-current="true"] { background: var(--bourbon); width: 24px; border-radius: 5px }
+.arrows { display: flex; gap: 8px }
+.arrows button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--card); display: grid; place-items: center; cursor: pointer }
+.arrows button:hover { border-color: var(--bourbon) }
+.arrows svg { width: 18px; stroke: var(--ink); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round }
+.domains { display: flex; flex-wrap: wrap; gap: 8px }
+.domains button { border: 1px solid var(--line); background: var(--card); border-radius: 20px; padding: 6px 12px; font: 500 13px var(--body); color: var(--ink-2); cursor: pointer }
+.domains button[aria-current="true"] { border-color: var(--bourbon); color: var(--ink) }
+.begin { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px 40px; align-items: end; border-top: 1px solid var(--line); padding-top: 28px; margin-bottom: clamp(-60px, -6vh, -30px) }
+.begin b { font: 500 clamp(28px, 3vw, 40px)/1.12 var(--display); max-width: 24ch }
+.begin span { color: var(--ink-2); font-size: 18px; max-width: 42ch; justify-self: end }
+@media (max-width: 860px) { .begin { grid-template-columns: 1fr } .begin span { justify-self: start } }
+@media (max-width: 980px) { .feat, .feat.rev { grid-template-columns: 1fr } .feat.rev .feat-t { order: 0 } }
+@media (max-width: 560px) { .slide .tag { left: 8px; bottom: 8px; padding: 6px 10px; gap: 8px } .slide .tag .lg img { --h: 18px } .slide .tag span { font-size: 11px } .slide img.shot { aspect-ratio: 4 / 3 } }
+
+/* one use case up close: is the band worth it */
+.bands { background: var(--card); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: 0 24px 60px rgba(40,25,10,.1) }
+.bands-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 22px 26px; border-bottom: 1px solid var(--line) }
+.bands-top .who { display: flex; align-items: center; gap: 14px }
+.bands-top .who .lg img { --h: 30px }
+.bands-top .who span { font: 600 14px var(--sc); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2) }
+.bsum { display: flex; gap: clamp(16px, 3vw, 34px); flex-wrap: wrap }
+.bsum div { display: grid; gap: 2px } .bsum span { font-size: 12.5px; color: var(--ink-2) } .bsum b { font: 500 28px/1 var(--display) }
+.bsum .up b { color: #3f6493 }
+.brow { display: grid; grid-template-columns: 1.7fr .7fr .7fr .9fr 1.5fr .8fr; gap: 14px; align-items: center; padding: 15px 26px; border-bottom: 1px solid var(--line); font-size: 15px; font-variant-numeric: tabular-nums }
+.brow:last-child { border-bottom: 0 }
+.brow.hd { font: 600 12px var(--sc); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); padding-block: 12px; background: var(--paper) }
+.brow .nm b { display: block; font: 500 21px/1.15 var(--display) } .brow .nm span { font-size: 13px; color: var(--ink-2) }
+.brow .lift { display: flex; align-items: center; gap: 8px; min-width: 0 }
+.brow .lift i { flex: none; height: 12px; border-radius: 3px; width: calc(var(--w) * .6%); min-width: 4px }
+.brow .lift i.pos { background: #c35121 } .brow .lift i.neg { background: #b5543f }
+.brow .lift em { font-style: normal; font-size: 13.5px; font-weight: 600; white-space: nowrap }
+.brow .lift em.pos { color: #3f6493 } .brow .lift em.neg { color: #b5543f }
+.verdict { justify-self: start; border-radius: 20px; padding: 5px 12px; font-size: 13px; font-weight: 600 }
+.verdict.keep { background: #e6ebf3; color: #2d4870 } .verdict.maybe { background: #f3e8cf; color: #7a5a17 } .verdict.re { background: #f4dcd5; color: #8e3a28 }
+.bands-foot { padding: 16px 26px; font-size: 14px; color: var(--ink-2); background: var(--paper); display: flex; gap: 10px 24px; flex-wrap: wrap; justify-content: space-between }
+.bands-foot b { color: var(--ink); font-weight: 600 }
+@media (max-width: 860px) {
+  .brow.hd { display: none }
+  .brow { grid-template-columns: 1fr auto; gap: 6px 12px; padding: 16px 20px }
+  .brow .nm { grid-column: 1 / -1 } .brow .lift { grid-column: 1 / -1; order: 5 } .brow .verdict { grid-row: 1; grid-column: 2 }
+  .brow .c::before { content: attr(data-k) " "; color: var(--ink-2); font-size: 12.5px }
+  .bands-top, .bands-foot { padding-inline: 20px }
+}
+@media (max-width: 560px) { .domains { display: none } }
+
+/* another example: what one party really made */
+.pnl { background: var(--card); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; display: grid; grid-template-columns: 1.2fr 1fr; box-shadow: 0 24px 60px rgba(40,25,10,.1) }
+.pnl-l { padding: 26px 28px; display: grid; gap: 18px; align-content: start }
+.pnl-who { display: flex; align-items: center; gap: 14px; flex-wrap: wrap } .pnl-who .lg img { --h: 28px }
+.pnl-who span { font: 600 14px var(--sc); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2) }
+.pnl h4 { margin: 0 0 4px; font: 600 13px var(--sc); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2) }
+.ln { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--line); font-size: 15.5px; font-variant-numeric: tabular-nums }
+.ln:last-child { border-bottom: 0 } .ln em { font-style: normal; font-size: 12.5px; color: #3f6493; margin-left: 8px; background: #e6ebf3; border-radius: 10px; padding: 1px 8px }
+.ln.cost b { color: #8e3a28 } .ln b { font-weight: 600 }
+.pnl-r { background: var(--hub); color: var(--hub-ink); padding: 28px; display: grid; gap: 16px; align-content: center }
+.pnl-r .k { font: 600 13px var(--sc); letter-spacing: .18em; text-transform: uppercase; color: var(--hub-soft) }
+.pnl-r .big { font: 500 clamp(56px, 6vw, 84px)/1 var(--display) }
+.pnl-r .m { font-size: 16px; color: #e9b99f }
+.split { display: flex; height: 16px; border-radius: 8px; overflow: hidden; background: #34312f }
+.split i { display: block; height: 100% } .split i.a { background: #d2815f } .split i.b { background: #748cab } 
+.split-key { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--hub-soft) }
+.split-key i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px }
+.pnl-r .note { font-size: 14.5px; color: var(--hub-ink); border-top: 1px solid #34312f; padding-top: 14px }
+.pnl-r .note b { color: #d2815f; font-weight: 600 }
+
+/* a special project: ask The Citadel anything (AI surfaces carry a soft green edge) */
+.sp-pill { display: inline-flex; align-items: center; gap: 8px; border-radius: 20px; padding: 5px 12px; background: #e6ebf3; color: #2d4870; font: 600 12px var(--body); letter-spacing: .08em; text-transform: uppercase; justify-self: start }
+.ask { background: var(--card); border: 1px solid #b9d3b3; border-radius: 22px; box-shadow: 0 0 0 4px rgba(79,122,82,.08), 0 24px 60px rgba(40,25,10,.1); overflow: hidden }
+.ask-in { display: flex; gap: 10px; align-items: center; padding: 18px; border-bottom: 1px solid var(--line) }
+.ask-in svg { flex: none; width: 22px; stroke: #c35121; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round }
+.ask-in input { flex: 1; min-width: 0; border: 0; background: none; font: 500 clamp(17px, 1.6vw, 21px) var(--body); color: var(--ink); outline: none }
+.ask-in button { flex: none; border: 0; border-radius: 10px; background: #3f6493; color: #fff; font: 600 15px var(--body); padding: 11px 18px; cursor: pointer }
+.ask-sugg { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 18px; background: var(--paper); border-bottom: 1px solid var(--line) }
+.ask-sugg button { border: 1px solid var(--line); background: var(--card); border-radius: 18px; padding: 7px 13px; font: 500 13.5px var(--body); color: var(--ink-2); cursor: pointer; text-align: left }
+.ask-sugg button:hover { border-color: #c35121; color: var(--ink) }
+.ask-out { padding: 26px 28px 28px; display: grid; gap: 18px; min-height: 340px; align-content: start }
+.ask-out .ans { font: 500 clamp(26px, 2.6vw, 36px)/1.15 var(--display); max-width: 30ch }
+.ask-out .ans b { color: #3f6493; font-weight: 600 }
+.ask-out .sub { color: var(--ink-2); font-size: 15px }
+.pair { display: grid; grid-template-columns: 130px 1fr 64px; gap: 6px 14px; align-items: center; font-size: 14.5px }
+.pair .bars { display: grid; gap: 4px }
+.pair .bars i { display: block; height: 10px; border-radius: 4px; width: calc(var(--w) * 1%); transition: width 1s ease }
+.pair .bars i.a { background: #e2ddd8 } .pair .bars i.b { background: #c35121 }
+.pair em { font-style: normal; font-weight: 600; color: #3f6493; text-align: right }
+.ask-key { display: flex; gap: 18px; font-size: 13px; color: var(--ink-2) }
+.ask-key i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px }
+.thinking { display: flex; gap: 6px; align-items: center; color: var(--ink-2); font-size: 15px }
+.thinking i { width: 7px; height: 7px; border-radius: 50%; background: #c35121; animation: dotp 1s ease-in-out infinite } .thinking i:nth-child(2) { animation-delay: .15s } .thinking i:nth-child(3) { animation-delay: .3s }
+@keyframes dotp { 50% { opacity: .25; transform: translateY(-3px) } }
+@media (max-width: 860px) { .pnl { grid-template-columns: 1fr } .pair { grid-template-columns: 96px 1fr 54px; font-size: 13.5px } .ask-in button { padding: 10px 14px } .ask-out { padding: 22px 20px } }
+
+/* want to go deeper: the button in the form and its pop-out */
+.deep-cta { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; background: #1a231e; border: 1px solid #44554a; border-radius: 14px; padding: 16px 18px }
+.deep-cta div { display: grid; gap: 4px; flex: 1 1 280px }
+.deep-cta b { font: 500 24px/1.15 var(--display); color: var(--hub-ink) }
+.deep-cta span { font-size: 15px; color: #cfdccb }
+.deep-cta button { border: 1px solid #d2815f; background: none; color: #d2815f; border-radius: 10px; padding: 11px 18px; font: 600 15px var(--body); cursor: pointer }
+.deep-cta button:hover { background: #d2815f; color: #111111 }
+.call-cta { background: #1a231e; border: 1px solid #44554a; border-radius: 14px; padding: 14px 16px; display: grid; gap: 10px }
+.call-top { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap }
+.call-top b { font: 500 21px/1.15 var(--display); color: var(--hub-ink) }
+.call-top span { font-size: 14px; color: #cfdccb }
+.call-pick { display: grid; grid-template-columns: 1fr .8fr 1fr 1.2fr; gap: 8px }
+.call-pick label { display: grid; gap: 4px; font: 600 11px var(--sc); letter-spacing: .12em; text-transform: uppercase; color: var(--hub-soft) }
+.who-form .call-pick input, .call-pick select { width: 100%; min-width: 0; font: 400 14px var(--body); color: var(--hub-ink); background: #12190f; border: 1px solid #44554a; border-radius: 8px; padding: 7px 8px; color-scheme: dark }
+.call-cta button { justify-self: start; border: 0; border-radius: 10px; background: #d2815f; color: #111111; font: 600 14.5px var(--body); padding: 10px 16px; cursor: pointer }
+@media (max-width: 560px) { .call-pick { grid-template-columns: 1fr 1fr } }
+.team-cta { border-color: #c35121 } .team-cta button { background: #d2815f; color: #111111 }
+.deep { width: min(720px, calc(100vw - 24px)); max-height: calc(100svh - 24px); overflow-y: auto; overscroll-behavior: contain; border: 0; border-radius: 22px; padding: clamp(24px, 3.6vw, 40px); background: #f7f5f4; color: #111111; box-shadow: 0 40px 100px rgba(0,0,0,.45); text-align: left }
+.deep::backdrop { background: rgba(14,20,16,.72); backdrop-filter: blur(3px) }
+.deep[open] { display: grid; gap: 18px; animation: deepin .35s ease both }
+@keyframes deepin { from { opacity: 0; transform: translateY(16px) scale(.98) } }
+.deep-x { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #d9d0bf; background: #ffffff; font-size: 24px; line-height: 1; cursor: pointer; color: #111111 }
+.deep .eyebrow { color: #9c5a26 }
+.deep h3 { font-size: clamp(32px, 4vw, 44px); padding-right: 40px }
+.deep-lede { font-size: 17px; color: #5d554b }
+.deep h4 { margin: 0 0 8px; font: 600 13px var(--sc); letter-spacing: .16em; text-transform: uppercase; color: #3f6493 }
+.deep-send ul { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 18px; font-size: 15.5px }
+.deep-send li { display: flex; gap: 9px } .deep-send li::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%; background: #d2815f; margin-top: 9px }
+.deep-ex { background: #ffffff; border: 1px solid #e3dccd; border-radius: 16px; padding: 18px; display: grid; gap: 12px }
+.deep-who { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 15px; color: #5d554b }
+.deep-who label { display: flex; align-items: center; gap: 6px; font-weight: 600; color: #111111 }
+.deep-who input { width: 110px; font: 600 16px var(--body); border: 1px solid #d9d0bf; border-radius: 8px; padding: 6px 8px; background: #fff; color: #111111 }
+.deep-tasks { display: grid; gap: 0 }
+.dt { display: grid; grid-template-columns: 1fr 70px 70px; gap: 10px; align-items: center; padding: 9px 0; border-top: 1px dashed #e3dccd; font-size: 15px }
+.dt.hd { border-top: 0; padding-top: 0; font: 600 12px var(--sc); letter-spacing: .12em; text-transform: uppercase; color: #6b6560 }
+.dt span:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums }
+.dt input { width: 54px; font: 500 15px var(--body); border: 1px solid #d9d0bf; border-radius: 6px; padding: 3px 6px; text-align: right; background: #fff; color: #111111; justify-self: end }
+.dt .after { color: #3f6493; font-weight: 600 }
+.deep-res { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; border-top: 1px solid #d9d0bf; padding-top: 14px }
+.deep-res div { display: grid; gap: 2px } .deep-res span { font-size: 12.5px; color: #6b6560 } .deep-res b { font: 500 30px/1 var(--display) } .deep-res .g b { color: #3f6493 }
+.deep-team { background: #ffffff; border: 1px solid #b9d3b3; border-radius: 16px; padding: 18px; display: grid; gap: 12px }
+.deep-team > p { font-size: 15px; color: #5d554b }
+.dt-add { display: grid; grid-template-columns: 1.3fr 1.2fr 1fr auto; gap: 8px }
+.dt-add input { font: 400 15px var(--body); border: 1px solid #d9d0bf; border-radius: 8px; padding: 9px 10px; background: #fff; color: #111111; min-width: 0 }
+.dt-add button { border: 0; border-radius: 8px; background: #3f6493; color: #fff; font: 600 15px var(--body); padding: 9px 16px; cursor: pointer }
+.roster { display: grid; gap: 8px }
+.rp { display: grid; grid-template-columns: 1fr auto; gap: 6px 10px; align-items: center; border-top: 1px dashed #e3dccd; padding-top: 10px; font-size: 15px }
+.rp b { font-weight: 600 } .rp .meta { color: #6b6560; font-size: 13.5px }
+.rp .acts { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end }
+.rp .acts button, .rp .acts a { border: 1px solid #d9d0bf; background: #fff; color: #111111; border-radius: 16px; padding: 5px 11px; font: 500 13px var(--body); cursor: pointer; text-decoration: none }
+.rp .acts .x { border: 0; background: none; color: #6b6560; font-size: 18px; padding: 2px 6px }
+.deep-team .private { display: flex; gap: 10px; align-items: flex-start; background: #e6ebf3; color: #2d4870; border-radius: 10px; padding: 10px 12px; font-size: 14.5px; line-height: 1.45 }
+.deep-team .private svg { flex: none; width: 18px; height: 18px; margin-top: 1px; fill: none; stroke: #2d4870; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round }
+.deep-team .preview { justify-self: start; font-size: 14px; color: #3f6493; font-weight: 600 }
+@media (max-width: 560px) { .dt-add { grid-template-columns: 1fr 1fr } .dt-add button { grid-column: span 2 } .rp { grid-template-columns: 1fr } .rp .acts { justify-content: flex-start } }
+.deep .send { justify-self: start; border: 0; border-radius: 10px; background: #111111; color: #fff; font: 600 16px var(--body); padding: 13px 22px; cursor: pointer }
+.deep-note { font-size: 14px; color: #6b6560; margin-top: -8px }
+@media (max-width: 560px) { .deep-send ul { grid-template-columns: 1fr } .deep-res { grid-template-columns: 1fr 1fr } .dt { grid-template-columns: 1fr 58px 58px; font-size: 14px } }
+
+/* town center in chatgpt: copy beside the phone video */
+.gpt { background: var(--paper) }
+.gpt-grid { display: grid; grid-template-columns: 1fr minmax(260px, 400px); gap: clamp(28px, 5vw, 70px); align-items: center }
+.gpt-t { display: grid; gap: 16px; align-content: center }
+.gpt-t h2 { font-size: clamp(38px, 4.8vw, 62px) }
+.gpt-t > p { font-size: clamp(18px, 1.6vw, 21px); color: var(--ink-2); max-width: 46ch }
+.gpt-pts { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px }
+.gpt-pts li { display: grid; gap: 2px; padding-left: 18px; position: relative; font-size: 16px; color: var(--ink-2) }
+.gpt-pts li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: #c35121 }
+.gpt-pts b { color: var(--ink); font-weight: 600 }
+.gpt-note { font-size: 15px; color: var(--ink-2); border-left: 3px solid #b9d3b3; padding-left: 12px }
+.gpt-v video { width: 100%; height: auto; display: block; border-radius: 28px; background: #f7f5f4 }
+@media (max-width: 860px) { .gpt-grid { grid-template-columns: 1fr } .gpt-v { max-width: 380px; justify-self: center; width: 100% } }
+
+@media (max-width: 980px) {
+  .flow { grid-template-columns: 1fr; gap: 0 }
+  .pipe { min-height: 54px; height: 54px; width: 2px; margin: 0 auto }
+  .pipe::before { inset: 0; left: 0; right: auto; top: 0; width: 2px; height: 100%; background: repeating-linear-gradient(180deg, var(--gold) 0 10px, transparent 10px 20px); background-size: 2px 20px; animation-name: flowy }
+  .pipe::after { right: auto; left: -5px; top: auto; bottom: -4px; border: 6px solid transparent; border-top: 8px solid var(--gold); border-bottom: 0 }
+  @keyframes flowy { to { background-position: 0 20px } }
+  .col { grid-template-columns: 1fr 1fr } .col h3 { grid-column: 1 / -1 }
+  .kpis { grid-template-columns: 1fr 1fr } .dash-rows { grid-template-columns: 1fr }
+  .teams { grid-template-columns: 1fr } .two { grid-template-columns: 1fr }
+  .outs { grid-template-columns: 1fr } .out.w3, .out.w2 { grid-column: auto }
+  .builds { grid-template-columns: 1fr 1fr }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px }
+  .col { grid-template-columns: 1fr }
+  .builds { grid-template-columns: 1fr }
+  .list4 { grid-template-columns: 1fr }
+  .bar { grid-template-columns: 96px 1fr 64px; font-size: 13px }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)) } .dash-rows { grid-template-columns: minmax(0, 1fr) } .dash { padding: 16px }
+  .kpi b { font-size: 27px } .ws-kp b { font-size: 26px }
+  .kpi { padding: 14px } .ring { width: 50px; height: 50px; margin-top: -40px } .ring::after { width: 38px; height: 38px }
+  .down { display: none }
+}
+
+/* wholesale: the sales tools, one tab each (ws- so nothing collides with the other sections) */
+.ws { background: var(--paper) } .ws.alt { background: var(--paper-2) }
+.ws-box { display: grid; grid-template-columns: 250px 1fr; gap: 22px; align-items: start }
+.ws-tabs { display: grid; gap: 4px; position: sticky; top: 20px }
+.ws-tabs button { all: unset; cursor: pointer; display: flex; align-items: center; gap: 11px; padding: 11px 14px; border-radius: 12px; font-size: 16px; color: var(--ink-2) }
+.ws-tabs button svg { flex: none; width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round }
+.ws-tabs button:hover { background: var(--card) }
+.ws-tabs button[aria-selected="true"] { background: var(--hub); color: var(--hub-ink) }
+.ws-tabs button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px }
+.ws-stage { display: grid; gap: 18px; min-width: 0 }
+.ws-cap { display: grid; gap: 6px }
+.ws-cap h3 { font-size: clamp(32px, 3.4vw, 46px) }
+.ws-cap p { color: var(--ink-2); font-size: 18px; max-width: 52ch }
+.ws-view { background: var(--hub); color: var(--hub-ink); border-radius: 22px; padding: clamp(18px, 2.6vw, 28px); box-shadow: 0 30px 80px rgba(0,0,0,.25); display: grid; gap: 14px; min-height: 420px; align-content: start; animation: wsin .45s ease }
+@keyframes wsin { from { opacity: 0; transform: translateY(8px) } }
+.ws-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap }
+.ws-top b { font: 500 28px/1.1 var(--display) }
+.ws-top span { font-size: 13px; color: var(--hub-soft); border: 1px solid #34312f; border-radius: 20px; padding: 5px 12px }
+.ws-row { display: grid; grid-template-columns: 1fr auto; gap: 4px 14px; align-items: center; background: var(--hub-2); border-radius: 12px; padding: 13px 16px }
+.ws-row .m { font-size: 16px; font-weight: 600; display: flex; gap: 8px; align-items: center; flex-wrap: wrap }
+.ws-row .s { grid-column: 1; font-size: 14px; color: var(--hub-soft) }
+.ws-row .r { grid-row: 1 / span 2; grid-column: 2; text-align: right; display: grid; gap: 5px; justify-items: end; font-variant-numeric: tabular-nums; font-size: 15px }
+.ws-pill { display: inline-block; font-size: 12.5px; font-weight: 600; border-radius: 20px; padding: 3px 10px; background: #34312f; color: var(--hub-ink); white-space: nowrap }
+.ws-pill.g { background: #2d4870; color: #cdeac4 } .ws-pill.a { background: #6b5422; color: #f6dfa6 } .ws-pill.r { background: #6e2f28; color: #f6c7bd }
+.ws-br { display: inline-block; font: 700 11px var(--body); letter-spacing: .06em; border-radius: 6px; padding: 2px 6px; color: #fff }
+.ws-tbl { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums }
+.ws-tbl th { text-align: left; font: 600 13px var(--sc); letter-spacing: .14em; text-transform: uppercase; color: var(--hub-soft); padding: 8px 10px; border-bottom: 1px solid #34312f }
+.ws-tbl td { padding: 11px 10px; border-bottom: 1px solid #2a2827 }
+.ws-tbl th:not(:first-child), .ws-tbl td:not(:first-child) { text-align: right }
+.ws-tbl td.hl { color: #f6dfa6; font-weight: 600 }
+.ws-scroll { overflow-x: auto; margin: 0 -4px; padding: 0 4px }
+.ws-doc { background: #ffffff; color: #111111; border-radius: 14px; padding: 18px 20px; display: grid; gap: 10px; font-size: 15.5px }
+.ws-doc .hd { display: grid; gap: 3px; font-size: 14px; color: #6b6560; border-bottom: 1px solid #e2ddd8; padding-bottom: 10px }
+.ws-doc .hd b { color: #111111; font-size: 16px }
+.ws-doc p { line-height: 1.55 }
+.ws-ln { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; border-bottom: 1px solid #ece7e2; padding: 8px 0; font-variant-numeric: tabular-nums }
+.ws-ln span { display: flex; gap: 8px; align-items: center } .ws-ln em { font-style: normal; color: #6b6560 }
+.ws-tot { display: flex; justify-content: space-between; font-weight: 700; font-size: 17px; padding-top: 4px }
+.ws-acts { display: flex; gap: 10px; flex-wrap: wrap; align-items: center }
+.ws-acts .b { border-radius: 10px; padding: 10px 16px; font-weight: 600; font-size: 15px; border: 1px solid #34312f }
+.ws-acts .b.go { background: #d2815f; color: #111111; border-color: #d2815f }
+.ws-acts .n { font-size: 13.5px; color: var(--hub-soft) }
+.ws-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px }
+.ws-grid div { background: var(--hub-2); border-radius: 12px; padding: 14px 16px; display: grid; gap: 4px; align-content: start }
+.ws-grid b { font-size: 16px } .ws-grid span { font-size: 14px; color: var(--hub-soft); line-height: 1.4 } .ws-grid em { font-style: normal; font-size: 12px; font-weight: 700; color: #d2815f; letter-spacing: .04em }
+body.solo { background: #111; min-height: 100vh; display: grid; place-items: center }
+.solo-wrap { width: min(1100px, 92vw); padding: 30px 0 } .solo .ws-view { animation: none; box-shadow: none; min-height: 0 }
+.ws-phone { background: #ffffff; color: #111111; border-radius: 22px; padding: 16px; display: grid; gap: 8px; max-width: 380px; width: 100%; justify-self: center; font-size: 15px }
+.ws-phone .who { text-align: center; font-size: 13px; color: #6b6560; font-weight: 600 }
+.ws-bub { background: #efebe7; border-radius: 16px 16px 16px 4px; padding: 9px 13px; max-width: 85%; line-height: 1.4 }
+.ws-bub.me { background: #2f6fde; color: #fff; justify-self: end; border-radius: 16px 16px 4px 16px }
+.ws-kp { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px }
+.ws-kp div { background: var(--hub-2); border-radius: 12px; padding: 14px 16px; display: grid; gap: 4px }
+.ws-kp span { font-size: 13px; color: var(--hub-soft) } .ws-kp b { font: 500 32px/1 var(--display) }
+.ws-meter { height: 8px; border-radius: 4px; background: #34312f; overflow: hidden; width: 110px }
+.ws-meter i { display: block; height: 100%; width: calc(var(--w) * 1%); background: var(--c, #a9c6a6) }
+@media (max-width: 900px) {
+  .ws-box { grid-template-columns: 1fr }
+  .ws-tabs { position: static; display: flex; overflow-x: auto; gap: 6px; margin: 0 -20px; padding: 0 20px 4px; scrollbar-width: none }
+  .ws-tabs::-webkit-scrollbar { display: none }
+  .ws-tabs button { flex: none; border: 1px solid var(--line); padding: 10px 14px; font-size: 15px }
+  .ws-view { min-height: 0 }
+}
+@media (max-width: 560px) {
+  .ws-row { padding: 12px 13px } .ws-row .m { font-size: 15px }
+  .ws-tbl { font-size: 13.5px } .ws-tbl td, .ws-tbl th { padding: 9px 6px }
+  .ws-doc { padding: 15px 14px; font-size: 15px }
+  .ws-ln { grid-template-columns: 1fr auto; gap: 2px 12px } .ws-ln em { grid-row: 2; font-size: 13px } .ws-ln b { grid-row: 1 / span 2; grid-column: 2 }
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <img src="img/glass/empire-glassworks-handcrafted-functional-glass-hero.jpg" alt="">
+  <div class="topbar"><span class="lockup" role="img" aria-label="The Citadel, for Empire Glassworks and Empire Smokes"><img src="img/glass/logo.png" alt=""><span><b>The Citadel</b><small>Empire Glassworks · Empire Smokes</small></span></span><span>For Empire Glassworks &amp; Empire Smokes</span></div>
+  <div class="wrap">
+    <span class="tc-mark"><i></i>The Citadel</span>
+    <h1>Two brands. One backend.</h1>
+    <p>The maker, the boutique and every wholesale shop, run from one place. The Citadel is the hub behind the empire.</p>
+  </div>
+  <a class="down" href="#flow" aria-label="Scroll down"><svg viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></svg></a>
+</header>
+
+<section class="sect front"><div class="wrap">
+  <div class="head rise"><span class="eyebrow">The front door</span><h2>The website is just the beginning.</h2><p>The new landing pages are the front doors. The Citadel is everything behind them.</p></div>
+  <div class="feat rise">
+    <div class="feat-t"><span class="eyebrow">Empire</span><h3>A fresh face for both brands.</h3><p>Empire Glassworks speaks to the shops. Empire Smokes sells to collectors. Each points to the other.</p><div class="cap" id="cap-a"></div></div>
+    <div class="slider" id="sl-a"></div>
+  </div>
+  <div class="feat rev rise">
+    <div class="feat-t"><span class="eyebrow">Every brand</span><h3>Each one keeps its own website.</h3><p>Its own name, look and address. One backend behind both.</p><div class="domains" id="doms"></div></div>
+    <div class="slider" id="sl-b"></div>
+  </div>
+  <div class="begin rise"><b>Customers and shops see the websites. Your team runs it all from The Citadel.</b><span>Every order, wholesale account and question from both front doors lands in one place.</span></div>
+</div></section>
+
+<section class="sect" id="flow"><div class="wrap">
+  <div class="head rise"><span class="eyebrow">How it connects</span><h2>Everything in. Anything out.</h2><p>Web orders, wholesale orders and emails flow in from everywhere. Reports, books and alerts flow out to wherever they belong.</p></div>
+  <div class="flow rise">
+    <div class="col" id="flowin">
+      <h3>Comes in</h3>
+    </div>
+    <div class="pipe"></div>
+    <div class="hub">
+      <div class="hub-top"><span class="k">Empire</span><b>The Citadel</b></div>
+      <div class="hub-grid" id="hubgrid"></div>
+      <div class="hub-homes" id="hubhomes"></div>
+    </div>
+    <div class="pipe"></div>
+    <div class="col sends" id="flowout">
+      <h3>Goes out</h3>
+    </div>
+  </div>
+</div></section>
+
+<section class="sect" style="background: var(--paper-2)"><div class="wrap">
+  <div class="head rise"><span class="eyebrow">One view</span><h2>Every number, on one screen.</h2><p>Wholesale and Empire Smokes side by side, every shop's reorder rhythm, and the stock that's about to run out.</p></div>
+  <div class="dash rise">
+    <div class="dash-top"><b>October at a glance</b><span>Updated live</span></div>
+    <div class="kpis" id="kpis"></div>
+    <div class="dash-rows">
+      <div class="panel"><h4>By channel</h4><div id="bars" style="display:grid;gap:11px"></div></div>
+      <div class="panel" id="panel2"></div>
+    </div>
+  </div>
+  <p class="sample rise">Sample numbers. Yours fill in once each brand is connected.</p>
+</div></section>
+
+<!-- the sales and marketing tools: one section per entry in tools, each with its own tabs -->
+<div id="toolsecs"></div>
+
+<section class="sect"><div class="wrap">
+  <div class="head rise"><span class="eyebrow">Every team</span><h2>Each team gets its own tools.</h2><p>Everyone works in the same place. Each person sees what's theirs.</p></div>
+  <div class="teams">
+    <div class="team rise"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2.5 20c.8-3.5 3.3-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.8c1.7.8 2.7 2.6 3 5.2"/></svg></div><h3>Sales</h3>
+      <ul><li>My day, every morning</li><li>Accounts, reorders and drafts</li><li>Texts, calls and email on the account</li><li>Samples, tracking and commission</li></ul>
+      <p class="sees">Sees their own shops.</p></div>
+    <div class="team rise"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 10v4h4l7 4V6L7 10zM17 9a4 4 0 0 1 0 6M7 14l1 5h2"/></svg></div><h3>Marketing</h3>
+      <ul><li>The launch calendar</li><li>Klaviyo email and texts</li><li>Posts, graphics and reviews</li><li>Every piece's photos and copy</li></ul>
+      <p class="sees">Sees the drops and the lists.</p></div>
+    <div class="team rise"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10"/></svg></div><h3>Production</h3>
+      <ul><li>What to make next</li><li>POs in and out</li><li>Receiving and batches</li><li>One pick list for every order</li></ul>
+      <p class="sees">Sees stock and orders, not prices.</p></div>
+    <div class="team rise"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Owners</h3>
+      <ul><li>Both brands in one set of books</li><li>Sales by brand, rep and shop</li><li>Price tiers and approvals</li><li>Reports that write themselves</li></ul>
+      <p class="sees">Sees everything.</p></div>
+  </div>
+</div></section>
+
+<section class="sect" style="background: var(--paper-2)"><div class="wrap">
+  <div class="head rise"><span class="eyebrow">Data out</span><h2>The numbers go where you need them.</h2><p>Into the books, into an email, into a spreadsheet, or straight into another system. Automatically.</p></div>
+  <div class="outs">
+    <div class="out w3 rise"><div class="vis">
+      <div class="mail" id="snapmail"></div>
+    </div><div class="txt"><h3>A snapshot in your inbox</h3><p>Every Monday, the week in one email. Sent to whoever needs it.</p></div></div>
+    <div class="out w3 rise"><div class="vis">
+      <div class="ledger" id="ledger"></div>
+    </div><div class="txt"><h3>Straight into the books</h3><p>Each brand lands as its own class, every night. No retyping.</p></div></div>
+    <div class="out w2 rise"><div class="vis">
+      <div class="phone"><div class="scr" id="sms"></div></div>
+    </div><div class="txt"><h3>Texts that matter</h3><p>Big orders and problems go straight to the right phone.</p></div></div>
+    <div class="out w2 rise"><div class="vis">
+      <div class="sheet"><span class="k">Empire · October</span><b>Owner report</b><div class="bars"><i style="height:60%"></i><i style="height:80%"></i><i style="height:45%"></i><i style="height:95%"></i><i style="height:70%"></i><i style="height:85%"></i></div><div class="ln2"></div><div class="ln2 s"></div><div class="ln2"></div><div class="ln2 s"></div></div>
+    </div><div class="txt"><h3>The monthly owner report</h3><p>A clean one-pager, ready on the first of the month.</p></div></div>
+    <div class="out w2 rise"><div class="vis">
+      <div class="feed"><div class="src">Town<br>Center<span>live data</span></div><div class="ln"></div>
+        <div class="dst"><span style="--c:#2ca01c"><i></i>Google Sheets</span><span style="--c:#1d6f42"><i></i>Excel</span><span style="--c:#50697a"><i></i>Your data center</span><span style="--c:#d2815f"><i></i>Any system with an API</span></div></div>
+    </div><div class="txt"><h3>Into your other systems</h3><p>A live feed to spreadsheets, data centers or anything else you run.</p></div></div>
+  </div>
+</div></section>
+
+<section class="sect"><div class="wrap">
+  <div class="head rise"><span class="eyebrow">Things we can build</span><h2>A few ideas to start.</h2><p>Need a new tool, or a new way to read the numbers? We switch it on. Each one runs inside The Citadel, shaped around how your team already works.</p></div>
+  <div class="builds" id="builds"></div>
+</div></section>
+
+
+
+<section class="sect" style="padding-top:0"><div class="wrap">
+  <div class="head rise"><span class="eyebrow">Another example</span><h2>What did the trade show really make?</h2><p>Every dollar in and out of one show, including the Empire Smokes sales it drove.</p></div>
+  <div class="pnl rise">
+    <div class="pnl-l">
+      <div class="pnl-who" id="partywho"></div>
+      <div><h4>Came in</h4><div id="p-in"></div></div>
+      <div><h4>Went out</h4><div id="p-out"></div></div>
+    </div>
+    <div class="pnl-r">
+      <span class="k">What the show made, after costs</span><div class="big" id="p-made"></div><span class="m" id="p-margin"></span>
+      <div class="split" id="p-split"></div>
+      <div class="split-key"><span><i style="background:#d2815f"></i>The show</span><span><i style="background:#748cab"></i>Empire Smokes sales</span></div>
+      <p class="note" id="p-note"></p>
+    </div>
+  </div>
+  <p class="sample rise">Sample numbers. The Citadel adds up every event the morning after.</p>
+</div></section>
+
+
+<section class="sect" style="padding-top:0"><div class="wrap">
+  <div class="head rise"><span class="sp-pill">Special project</span><h2>Ask it anything.</h2><p>Type any question in plain English. The Citadel answers from the numbers of both brands at once.</p></div>
+  <div class="ask rise">
+    <form class="ask-in" id="askf"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg><input id="askq" aria-label="Ask The Citadel a question"><button type="submit">Ask</button></form>
+    <div class="ask-sugg" id="asks"></div>
+    <div class="ask-out" id="askout"></div>
+  </div>
+  <p class="sample rise">Sample answers. A custom build, made around the questions your team asks most.</p>
+</div></section>
+
+<section class="sect" style="background: var(--paper-2)"><div class="wrap">
+  <div class="two">
+    <div class="pane dark rise"><span class="eyebrow">Marketing, built in</span><h2>Get the word out from the same place.</h2>
+      <div class="list4">
+        <div><b>Listings everywhere</b><span>Both stores, Faire, Google Shopping and every distributor feed, from one record.</span></div>
+        <div><b>Emails &amp; texts</b><span>Klaviyo or Mailchimp, plus texts, in each brand's own look.</span></div>
+        <div><b>Graphics in a click</b><span>Posts and flyers in every brand, ready to share.</span></div>
+        <div><b>Press &amp; reviews</b><span>Pitches to writers, and replies to every review.</span></div>
+      </div></div>
+    <div class="pane light rise"><span class="eyebrow">Easy for every team</span><h2>Staff update the website themselves.</h2>
+      <p style="color:var(--ink-2)">Menus, hours, events and photos change in a minute. No developer. Every page stays on brand.</p>
+      <div class="editor" id="editor"></div>
+</div>
+  </div>
+</div></section>
+
+
+<section class="sect tail"><div class="wrap">
+  <span class="eyebrow rise">Made for you</span>
+  <h2 class="rise">If you can picture it, we can build it.</h2>
+  <p class="rise">Every tool here is tailored to how Empire runs. Tell us what you use today, and we'll connect it.</p>
+  <div class="uses rise" id="uses"></div>
+  <span class="uses-k rise" id="usesk">Tap what you use today.</span>
+  <form class="who-form rise" id="whoform">
+    <h3>Who runs what?</h3>
+    <p>Give us a quick picture of who uses which software. Some of it may be replaced by tools built into The Citadel, and save you the subscription.</p>
+    <div class="two-f"><label>Your name<input name="person" autocomplete="name"></label><label>Your email<input name="email" type="email" autocomplete="email" inputmode="email"></label></div>
+    <label>Your role<input name="role" placeholder="Owner, wholesale lead, studio manager"></label>
+    <label>Who runs what<textarea name="who" placeholder="Shopify: Empire Smokes team&#10;Wholesale orders and applications: the sales reps&#10;Klaviyo: whoever runs the drops"></textarea></label>
+    <button class="send" type="submit">Send to Jordan</button>
+    <p class="quote1">The more you tell us, the better we can quote you.</p>
+    <div class="deep-cta"><div><b>Want to go deeper?</b><span>Share your departments, pay, overhead and software, and we'll show you the hours The Citadel gives back.</span></div><button type="button" id="deepopen">See how it works</button></div>
+    <div class="deep-cta team-cta"><div><b>Ask your team</b><span>Send a survey to each team member to start understanding their daily tasks, the software they use and where their time goes.</span></div><button type="button" id="teamopen">Send surveys</button></div>
+    <div class="call-cta"><div class="call-top"><b>Schedule a call</b><span>30 to 60 minutes on how the business runs and who's on the team. It sharpens the quote.</span></div>
+      <div class="call-pick"><label>Day<input type="date" id="callday"></label><label>Time<select id="calltime"><option>Morning</option><option>Midday</option><option>Afternoon</option><option>Any time</option></select></label><label>Name<input id="callname" autocomplete="name"></label><label>Email<input id="callemail" type="email" autocomplete="email" inputmode="email"></label></div>
+      <button type="button" id="callbtn">Schedule a call with Jordan</button></div>
+    <span class="sent" id="whosent" hidden></span>
+  </form>
+  <div class="howto rise">
+    <span class="eyebrow">How it comes together</span>
+    <h3>From first build to running on its own.</h3>
+    <ol class="tl">
+      <li><i>1</i><span class="when">1 to 2 weeks</span><b>Initial development</b><p>We build The Citadel around your businesses and your numbers.</p></li>
+      <li><i>2</i><span class="when">1 to 2 weeks</span><b>Wiring in with your team</b><p>Every system connected, every team shown its tools. Timing depends on how available everyone is.</p></li>
+      <li><i>3</i><span class="when">1 to 2 months</span><b>Bugs and kinks</b><p>We smooth out what comes up as everyone uses it day to day.</p></li>
+      <li class="done"><i>✓</i><span class="when">After that</span><b>It runs on its own</b><p>The numbers, reports and alerts keep flowing without anyone pushing them.</p></li>
+    </ol>
+    <div class="costs">
+      <div><span>Upfront</span><p>The initial build and wiring in.</p></div>
+      <div class="ongo"><span>Ongoing</span><dl><dt>Subscriptions</dt><dd>A couple, for the AI that powers the analysis and the development. They're credit based, so you only pay for what's used.</dd><dt>Development retainer</dt><dd>A small one, to keep everything running smooth on the back end.</dd></dl></div>
+      <div><span>New builds</span><p>Anytime you want something new, there's a development cost. With AI doing the heavy lifting, it stays fairly small.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<dialog class="deep" id="deep" aria-labelledby="deep-h">
+  <button class="deep-x" type="button" id="deepclose" aria-label="Close">×</button>
+  <span class="eyebrow">Want to go deeper?</span>
+  <h3 id="deep-h">See the time The Citadel gives back.</h3>
+  <p class="deep-lede">Send us the full picture and we'll run the numbers on how many hours, and dollars, every team gets back.</p>
+  <div class="deep-send"><h4>What to send</h4><ul><li>Every department, and who's in it</li><li>Salaries or pay ranges</li><li>Overhead: rent, insurance, utilities</li><li>Software, and what each one costs</li><li>The jobs that eat the most time</li></ul></div>
+  <div class="deep-ex">
+    <h4>An example</h4>
+    <div class="deep-who"><label>Salary <span>$</span><input id="dsal" type="number" inputmode="numeric" value="70000" step="1000" min="0"></label><span id="drate"></span></div>
+    <div class="deep-tasks" id="dtasks"></div>
+    <div class="deep-res" id="dres"></div>
+  </div>
+  <div class="deep-team">
+    <h4>Ask your team</h4>
+    <p>Add each person, then send them their own short survey about their day. They only see the questions.</p>
+    <form class="dt-add" id="dtadd"><input name="n" placeholder="Name" aria-label="Name" required><input name="d" placeholder="Department" aria-label="Department"><input name="s" type="number" inputmode="numeric" placeholder="Salary" aria-label="Salary" min="0" step="1000"><button type="submit">Add</button></form>
+    <p class="private"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11h12v9H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3"/></svg>Salaries stay private. They're never shown to the person you send the survey to, or to anyone else. They go only to Jordan, for the time savings analysis.</p>
+    <div class="roster" id="roster"></div>
+    <a class="preview" href="https://jordangoldstein87.github.io/empire/survey.html" target="_blank" rel="noopener">See what they'll see</a>
+  </div>
+  <button class="send" type="button" id="deepsend">Send the details to Jordan</button>
+  <p class="deep-note">Includes your team list and salaries, sent only to Jordan. A spreadsheet is fine too; attach it to the email that opens.</p>
+</dialog>
+<footer class="foot">Empire · The Citadel · A preview for Empire Glassworks &amp; Empire Smokes</footer>
+
+<script>
+window.CLIENT = {"id":"empire","brand":"Empire","org":"Empire Glassworks & Empire Smokes","orgShort":"Empire","hub":"The Citadel","hubShort":"The Citadel","month":"October","contact":{"name":"Jordan","email":"jordan@jgoco.me"},"publish":{"base":"https://jordangoldstein87.github.io/empire/","repo":"jordangoldstein87/empire"},"logo":{"img":"img/glass/logo.png","word":"The Citadel","bottom":"Empire Glassworks · Empire Smokes","aria":"The Citadel, for Empire Glassworks and Empire Smokes"},"heroImage":"img/glass/empire-glassworks-handcrafted-functional-glass-hero.jpg","hero":{"h1":"Two brands. One backend.","p":"The maker, the boutique and every wholesale shop, run from one place. The Citadel is the hub behind the empire."},"front":{"lede":"The new landing pages are the front doors. The Citadel is everything behind them.","h":"A fresh face for both brands.","p":"Empire Glassworks speaks to the shops. Empire Smokes sells to collectors. Each points to the other.","slides":[["img/shots/tc-welcome.jpg","Two brands, one opening."],["img/shots/tc-glass-ws.jpg","Wholesale sign-up, front and center."],["img/shots/tc-smokes-shop.jpg","The newest drops, up top."]],"sites":[["glass","empireglassworks.com","img/shots/glass.jpg"],["smokes","empiresmokes.com","img/shots/smokes.jpg"]]},"logos":[["glass","img/glass/logo.png",""],["smokes","img/smokes/logo.png","#202223"]],"homes":[],"flow":{"in":[["globe","Both Shopify stores"],["users","Wholesale portal & applications"],["mail","Emails from shops"],["chat","Texts & calls"],["card","Cards & net terms"],["db","UPS & ShipStation"]],"out":[["book","QuickBooks","or whatever you use"],["mail","Klaviyo & SMS lists"],["chat","Texts to reps"],["users","Store locator"],["db","Faire & distributor feeds"],["grid","Sheets & Excel"]]},"dash":{"title":"October at a glance","barsH":"By channel","p":"Wholesale and Empire Smokes side by side, every shop's reorder rhythm, and the stock that's about to run out.","kpis":[["Both brands","$186,400","↑ 9% on September"],["Wholesale","$118,900","64% of sales"],["Reorders on time","78%","of shops due",78],["Empire Smokes","$67,500","1,284 web orders"]],"bars":[["Empire Smokes",67500,"#ffbb31"],["Smoke shops",51300,"#d2815f"],["Distributors",46200,"#d2815f"],["Online stores",21400,"#d2815f"]],"panel":[{"h":"Shops due to reorder","c":"#e7c27a","bars":[["On time",78,"31 shops"],["Late",22,"9 shops"]]},{"h":"Stock to watch","c":"#ffbb31","bars":[["Save the Bees",15,"6 days"],["Orchid bowl",20,"8 days"]]}]},"out":{"snapTo":"the owners","week":"Week of Nov 2","total":"$44,180","stats":[["Wholesale","$28,600","22 orders"],["Empire Smokes","$15,580","301 orders"],["New shops","4","applied"]],"best":"Best seller: the Otter Dry Pipe, 52 this week across both.","books":"QuickBooks","ledger":[["Cloud 9 Headshop · wholesale","Glassworks","$1,152.00"],["Coastal Distribution · wholesale","Glassworks","$4,186.50"],["Empire Smokes · Sunday web sales","Smokes","$2,214.80"],["Puff Palace Online · wholesale","Glassworks","$1,020.00"],["Empire Smokes · Klaviyo drop","Smokes","$3,460.00"]],"texts":[["Cloud 9's order landed at 11:42 (UPS). Their last box sold through in 21 days."],["Reply 1 for a check-in draft."],["1",true],["Draft is in your inbox. You press send."]]},"builds":[["box","Production queue","What the studio should make next, from stock, reorders due and open wholesale orders.","The studio"],["star","Artist drops","Collab launches like Moonray: one calendar, one email, one text, both stores.","Marketing"],["ticket","Trade show mode","Scan a badge, open the account, send the price list before they leave the booth.","Sales"],["card","Net terms","Approved shops buy on terms. Late balances go to the rep, not the owner.","Finance"],["people","Distributor view","Each distributor sees its price, stock and its own shops' sell-through.","Wholesale"],["gift","Display kits","Every POP display: where it sits, and what it sells.","Wholesale"],["heart","Collector list","Empire Smokes buyers who grab every drop, invited an hour early.","Marketing"],["calc","Margin check","What each piece costs to make, next to its wholesale and retail price.","Finance"],["glass","Breakage claims","Photos, replacements and credits, tied to the order and the carrier.","Shipping"],["swap","MAP watch","Flags online stores selling Empire under the set price.","Wholesale"],["form","Custom runs","Private label and custom requests: mockups, deposits and approvals.","Sales"],["pay","One pay run","Consigned artists, rep commission and vendors, paid from one list.","Finance"]],"party":{"h":"What did the trade show really make?","p":"Every dollar in and out of one show, including the Empire Smokes sales it drove.","label":"Sample trade show · 3 days · 41 shops met","logo":["Empire Glassworks","img/glass/logo.png",""],"extraKey":"Empire Smokes sales","extraShort":"web sales","in":[["Opening orders, 9 new shops",6400],["Reorders written at the booth",3900],["Display kits",2160],["Empire Smokes sales from the booth's QR code",1840,"Within 30 days",true]],"out":[["Booth and travel",4200],["Staff, 3 people",1500],["Display kit cost",940],["Samples handed out",680]],"noun":"show"},"ask":[{"q":"Do shops that carry more Empire reorder more often?","a":"Shops with 20 or more pieces reorder \u003cb>about 50% more\u003c/b> often.","sub":"Orders a year, every account since January.","key":["Under 20 pieces","20 or more"],"rows":[["Smoke shops",5,8],["Online stores",6,9],["Distributors",7,10]]},{"q":"Which pieces sell through fastest at shops?","a":"The Otter sells \u003cb>82%\u003c/b> of a shop's stock in 30 days.","sub":"Share of each shop's order sold in 30 days, from shops that share sales.","one":true,"pct":true,"rows":[["Otter Dry Pipe",82],["Jelly Donut",76],["Duck Bowl Piece",71],["Galactic Baby Beaker",44]]},{"q":"Do samples turn into orders?","a":"Display kits turn into an order \u003cb>72%\u003c/b> of the time.","sub":"Samples that led to an order within 60 days.","one":true,"pct":true,"rows":[["Display kits",72],["Puffco glass",64],["Dry pipes",51],["Water pipes",38]]},{"q":"Where should we look for new shops?","a":"Texas looks ready: \u003cb>$38,000\u003c/b> from shops not yet carrying Empire.","sub":"Expected first-year sales, from Google listings, shop type and how similar shops order.","one":true,"money":true,"rows":[["Texas",38000],["Florida",31000],["Colorado",22000]]}],"marketing":{"listings":"Both stores, Faire, Google Shopping and every distributor feed, from one record.","emails":"Klaviyo or Mailchimp, plus texts, in each brand's own look."},"editor":{"rows":[["Empire Smokes · Drop banner","Sunshine Garden, part two. Friday at noon."],["Glassworks · Wholesale","Opening orders from $500"],["Empire Smokes · Shipping","Free US shipping over $75"]]},"uses":["Shopify","Klaviyo","Mailchimp","Postscript","Attentive","QuickBooks","ShipStation","UPS","Faire","LeafLink","Locksmith","Gmail","Google Sheets","Excel","Instagram","Something else"],"form":{"role":"Owner, wholesale lead, studio manager","who":"Shopify: Empire Smokes team\nWholesale orders and applications: the sales reps\nKlaviyo: whoever runs the drops"},"deep":{"tasks":[["Typing wholesale orders from email into Shopify",5,0.5],["Checking which shops are due to reorder",3,0],["Answering where's my order from shops",2,0],["Updating the same piece on two stores",3,0.5]]},"survey":{"scope":"both brands","dept":"Wholesale, the studio, shipping, Empire Smokes","role":"Sales rep, glassblower, shipping lead","duties":"Call shops, write wholesale orders, pack boxes, post new drops","vendors":"Glass suppliers, UPS, the box supplier, outside artists","eats":"Typing orders from email, answering where's my order","software":["Shopify","Klaviyo","Mailchimp","Postscript","Attentive","QuickBooks","ShipStation","UPS","Faire","LeafLink","Gmail","Outlook","Excel","Google Sheets","Instagram","Facebook","Canva","Slack"],"ideas":["Answering emails","Phone calls","Wholesale orders","Reorders","Tracking questions","Data entry","Reports","Inventory","Social media","Drops and launches","Packing and shipping"]},"brandTags":{"g":["EG","#c35121"],"s":["ES","#b24a64"]},"tools":[{"id":"wholesale","eyebrow":"Wholesale, built in","h":"The whole wholesale business, in one place.","p":"Every shop, reorder and rep across the Empire Glassworks line, in the same hub we built for another national brand's sales team.","tabs":[{"icon":"day","t":"My day","h":"Every rep starts here.","p":"Who to call, what to check and what landed, in the order it matters.","view":{"kind":"rows","title":"Kim's day · Monday","sub":"5 things","rows":[["Call Lakeside Smoke & Vape","34 days since their last order. They usually reorder every 30.","9:30","Reorder due","a"],["Check Puff Palace's portal order","48 pieces, waiting on your look","$1,020","Review","b"],["Elevated Goods Co. applied","Brooklyn shop, resale certificate attached","","Approve?","g"],["Cloud 9's order landed","UPS delivered at 11:42. A check-in draft is ready.","","Landed","g"],["Follow up on Mountain Mist's display kit","Delivered 9 days ago, no order yet","","Sample","a"]],"acts":[["Start my day",true],["Prep me for Lakeside"]],"note":"A list, not an autopilot."}},{"icon":"acct","t":"Accounts","h":"One page for every shop.","p":"Orders, emails, samples, terms and best sellers, so anyone can pick up the account.","view":{"kind":"rows","title":"Lakeside Smoke & Vape","sub":"Long Beach, CA · Smoke shop · Kim","rows":[["Last order, Sep 29","Otter, Jelly Donut, Duck bowls, Corgi dabbers, Sriracha caps, Save the Bees","$1,026","Shipped","g"],["Email from Marisol, Oct 30","When does the Moonray collab come to wholesale?","","Inbox","b"],["Sample sent, Oct 12","Soju Bottle Peak Attachment","","Landed","g"],["Sells best here","The Otter sold out in 18 days","","Best seller",""]],"kpis":[["This year","$9,840"],["Orders","11"],["Reorders every","30 days"],["Terms","Net 30"]],"acts":[["Draft a reorder",true],["Text Marisol"],["Log a call"]]}},{"icon":"re","t":"Who to reorder","h":"Who's due, from each shop's own rhythm.","p":"Not a calendar reminder. Each shop's own pace, so late ones stand out.","view":{"kind":"rows","title":"Due or late","sub":"Sales this year","rows":[["The Green Room","Portland · every 30 days · last order 52 days ago","$5,210","22 days late","r",100],["Nordic Head Supply","Amsterdam · every 60 days · 74 days ago","$31,950","14 days late","r",80],["Mountain Mist Smoke Shop","Denver · every 30 days · 38 days ago","$6,390","8 days late","a",60],["Lakeside Smoke & Vape","Long Beach · every 30 days · 34 days ago","$9,840","4 days late","a",50],["Coastal Distribution","San Diego · every 30 days · 27 days ago","$48,300","Due in 3 days","g",30]],"acts":[["Draft all five",true]],"note":"Drafts wait for the rep."}},{"icon":"draft","t":"Order drafts","h":"The reorder, already written.","p":"Built from the last order and what sold. The rep checks every line before it goes.","view":{"kind":"order","title":"Reorder draft","sub":"From the last order, Otters up to 8","acct":"Lakeside Smoke & Vape","meta":"Kim · Net 30 · ships from Placentia","lines":[["Otter Dry Pipe","g",8,35],["Jelly Donut Dry Pipe","g",6,30],["Duck Bowl Piece, 14mm","g",12,18],["Corgi Dabber","g",12,15],["Sriracha Spinner Cap","g",6,20],["Save the Bees Proxy Core","g",4,30]],"acts":[["Edit"],["Send to Marisol to confirm",true]],"note":"Kim checks it first."}},{"icon":"price","t":"Price tiers","h":"Every shop sees its own price.","p":"Shops, online stores and distributors each get their tier. Volume breaks apply on their own.","view":{"kind":"table","title":"Empire Glassworks price list","sub":"Sample tiers","cols":["Piece","Empire Smokes","Shops","Distributors","10 or more"],"hl":2,"rows":[["Otter Dry Pipe","$65","$35","$29.75","$33.25"],["Jelly Donut Dry Pipe","$60","$30","$25.50","$28.50"],["Galactic Baby Beaker","$330","$165","$140.25","$156.75"],["Duck Bowl Piece","$36","$18","$15.30","$17.10"],["Soju Bottle Peak Attachment","$80","$40","$34","$38"],["Pivot Mouthpiece Case, 18","Wholesale only","$270","$229.50","$256.50"]],"acts":[["Send this list to a shop",true]],"note":"MAP set at the Empire Smokes price."}},{"icon":"mail","t":"Email drafts","h":"The note, written in the rep's voice.","p":"From the account's history. The rep reads it, changes what they like and presses send.","view":{"kind":"mail","title":"Draft for Kim","sub":"Written from the account","to":"Marisol, Lakeside Smoke & Vape","subj":"Your reorder, and the Moonray question","body":["Hi Marisol,","Your Otters sold out in 18 days last time, so I bumped them to 8. Everything else matches September. Total $1,096, Net 30.","The Moonray collab opens to wholesale Nov 15. Want me to hold two Sunshine Garden spoons for you?","Kim"],"acts":[["Edit"],["Send",true]],"note":"It never sends on its own."}},{"icon":"inbox","t":"Inbox","h":"Every email, filed under its shop.","p":"Add-ons, claims and questions land on the right account, with the rep who owns it.","view":{"kind":"rows","title":"Inbox","sub":"Filed by shop","rows":[["Cloud 9 Headshop · Priya","Can we add 12 Duck bowls to the order that shipped?","8:12","Add-on","b"],["The Green Room · Jonah","Two broken in the last box. Photos attached.","Yesterday","Claim","r"],["Coastal Distribution · Rafael","Q1 forecast attached","Yesterday","Files","g"],["Puff Palace Online · Tasha","Is the Soju Bottle back in stock?","Fri","Stock","a"],["New sender","I own a shop in Boise and want to carry Empire","Fri","New lead","g"]],"acts":[["Summarize the Green Room thread",true]]}},{"icon":"truck","t":"Landed alerts","h":"Reps know the moment a box lands.","p":"UPS tells the hub. The hub texts the rep with a check-in ready to send.","view":{"kind":"sms","title":"Landed alerts","sub":"From UPS tracking","to":"The Citadel","msgs":[["Cloud 9's order landed at 11:42 (UPS). Their last box sold through in 21 days."],["Want a check-in draft for Priya?"],["Yes",true],["Draft is in your inbox. You press send."]],"acts":[["See every shipment"]]}},{"icon":"gift","t":"Samples","h":"Every sample, all the way to an order.","p":"Sent, landed, followed up, and whether it paid off.","view":{"kind":"rows","title":"Samples out","sub":"This quarter","rows":[["Mountain Mist · display kit","Delivered Oct 24","","No order yet","a"],["Bayside Tobacco · Corgi dabbers","Delivered Oct 2","$960","Ordered","g"],["Puff Palace · Soju Bottle","Delivered Sep 28","$1,020","Ordered","g"],["Elevated Goods · starter box","Packing today","","Out","b"]],"kpis":[["Sent","38"],["Became orders","21"],["Orders from them","$18,400"]]}},{"icon":"pct","t":"Commission","h":"Commission, worked out.","p":"Each rep sees their own. The owners see all of it.","view":{"kind":"table","title":"October commission","sub":"Sample rates","cols":["Rep","Sales","Rate","Earned","New shops"],"hl":3,"rows":[["Kim","$41,200","5%","$2,060","2"],["Andre","$52,600","4%","$2,104","1"],["Lena","$25,100","5%","$1,255","1"]]}},{"icon":"apply","t":"Applications","h":"New shops, checked before anyone looks.","p":"Resale certificate, Google listing and website checked. A person approves every shop.","view":{"kind":"rows","title":"Wholesale applications","sub":"3 waiting","rows":[["Elevated Goods Co.","Brooklyn, NY · certificate valid · listing matches","$500 opener","Ready","g"],["Boise Glass House","Boise, ID · from the inbox · no certificate yet","","Asked for it","a"],["Cheap Smokes Online","Lists Empire under MAP","","Flagged","r"]],"acts":[["Approve Elevated Goods",true]]}}]},{"id":"outreach","eyebrow":"Find and win shops","h":"Outreach, from the same place.","p":"Find new shops, clean up the list, and reach them by text, call or email. Every message drafted, every send a person's press.","tabs":[{"icon":"search","t":"Lead finder","h":"Shops worth a call, near any city.","p":"From Google listings, reviews and what each shop sells.","view":{"kind":"rows","title":"Shops near Denver, CO","sub":"From Google listings","rows":[["Rocky Top Smoke Shop","4.7 stars · 312 reviews · heady glass in the case","","Good fit","g"],["Mile High Glass Gallery","4.8 stars · a glass gallery","","Good fit","g"],["Corner Tobacco & Vape","Mostly vapes, no glass on Instagram","","Maybe","a"],["Mountain Mist Smoke Shop","Already an account","","Andre's","b"]],"acts":[["Add two to Andre's list",true]]}},{"icon":"spark","t":"Lead cleanup","h":"A clean list, without the busywork.","p":"Duplicates merged, addresses fixed, phones found, closed shops set aside.","view":{"kind":"rows","title":"Cleanup","sub":"1,240 leads checked","rows":[["Lakeside Smoke & Vape, twice","Same address and phone. Merged, notes kept.","","Merged","g"],["Green Leaf Tobacco","Google says it closed","","Set aside","r"],["Vapor Lounge","A vape shop, no glass","","Low priority","a"]],"kpis":[["Merged","86"],["Addresses fixed","143"],["Phones found","212"],["Closed","31"]],"acts":[["Review the changes",true]],"note":"Nothing deleted. Every change can be undone."}},{"icon":"re","t":"Long shots","h":"Bring back shops that went quiet.","p":"Who used to buy, why they stopped, and a note to win them back.","view":{"kind":"rows","title":"Long shots","sub":"3 worth a try","rows":[["Sunset Smoke Lounge","11 months quiet · used to spend $6,800 a year","","Win back","a"],["Westside Glass","8 months quiet · left after a breakage claim","","Win back","a"],["Tribe Tobacco","14 months quiet · new owner since spring","","New buyer","b"]],"acts":[["Draft win-back notes",true]],"note":"A rep reviews each one."}},{"icon":"sms","t":"Texts","h":"Text shops from the hub.","p":"Two-way, on the shop's own thread. Replies land on the account.","view":{"kind":"sms","title":"Text from the hub","sub":"Andre's thread","to":"Mile High Glass Gallery","msgs":[["Hi, it's Andre from Empire Glassworks. Saw you carry heady glass. Can I send our wholesale list? Opening orders start at $500.",true],["Sure. Do you have the donut pipes?"],["We do. The list and photos are in your email now.",true]],"acts":[["Send",true]],"note":"Every text sent by a person."}},{"icon":"phone","t":"Calls","h":"Ready for every call in 30 seconds.","p":"What they bought, what they asked, what to bring up. Notes land on the account after.","view":{"kind":"rows","title":"Call prep · Lakeside","sub":"Prep me","rows":[["Last talked Oct 3","Marisol wanted more Puffco glass","","Notes",""],["Reorder","4 days late","","Due","a"],["Balance","$0 open","","Clear","g"],["Bring up","The Moonray collab and a display kit","","Idea","b"]],"acts":[["Call Marisol",true],["Log the call"]]}},{"icon":"pin","t":"Store locator","h":"Find Empire near you.","p":"On both websites, built from active accounts. Shops appear after their first order.","view":{"kind":"rows","title":"Find Empire near you","sub":"On both sites","rows":[["Lakeside Smoke & Vape","Long Beach, CA · 2.1 miles","","24 pieces","g"],["Cloud 9 Headshop","Austin, TX","","31 pieces","g"],["Bayside Tobacco & Gifts","Tampa, FL","","12 pieces","g"]],"acts":[["Open the map",true]],"note":"Updates itself when shops order."}}]},{"id":"catalog","eyebrow":"One catalog","h":"One master SKU database.","p":"Every piece, once. Photos, specs, barcodes and every price, feeding both stores, the wholesale portal and every distributor.","tabs":[{"icon":"box","t":"Master SKU","h":"Edit it once. It changes everywhere.","p":"One record for each piece, with every price and every place it's listed.","view":{"kind":"rows","title":"EG-DP-OTTER · Otter Dry Pipe","sub":"One record","rows":[["Empire Smokes","Photos and copy synced","","Live","g"],["Wholesale portal","All three tiers","","Live","g"],["Faire","$35 wholesale","","Live","g"],["Coastal Distribution feed","Sent nightly","","Synced","g"],["Google Shopping","Missing a barcode","","Fix","a"]],"kpis":[["Shops","$35"],["Distributors","$29.75"],["Empire Smokes","$65"],["In stock","142"]],"acts":[["Edit once",true]]}},{"icon":"price","t":"Inventory","h":"One count for both stores.","p":"A piece sold at Empire Smokes and a case sold to a shop come off the same shelf.","view":{"kind":"table","title":"Stock, both stores","sub":"Last 30 days","cols":["Piece","On hand","Empire Smokes","Wholesale","Runs out"],"hl":4,"rows":[["Save the Bees Proxy Core","9","14","28","In 6 days"],["Orchid Bowl Piece","12","9","36","In 8 days"],["SPAM Musubi Dry Pipe","19","11","18","In 20 days"],["Otter Dry Pipe","142","38","176","In 20 days"],["Duck Bowl Piece","210","22","96","In 53 days"]],"acts":[["Send the studio's next batch",true]],"note":"The studio sees what to make next."}},{"icon":"bell","t":"Low stock","h":"Low stock, before it's gone.","p":"Who's waiting, and what to make. The shops hear when it's back.","view":{"kind":"rows","title":"Watch list","sub":"3 to act on","rows":[["Save the Bees Proxy Core","9 left · 3 shops waiting","","Make 60","r"],["Orchid Bowl Piece","12 left · on Lakeside's reorder","","Make 48","a"],["Galactic Flagship","6 left · hold 2 for Nordic?","","Hold","b"]],"acts":[["Draft back-in-stock notes",true]],"note":"Each note waits for the rep."}},{"icon":"flag","t":"Listings","h":"Listed everywhere, from one place.","p":"Both Shopify stores, Faire, Google and the distributors' feeds.","view":{"kind":"rows","title":"Where each piece is listed","sub":"All in sync","rows":[["Empire Smokes on Shopify","248 pieces","","Synced","g"],["Empire Glassworks on Shopify","222 pieces","","Synced","g"],["Faire","180 pieces","","Synced","g"],["Distributor feeds","9 distributors","","Nightly","g"],["Google Merchant","12 missing barcodes","","Fix","a"]]}}]},{"id":"production","eyebrow":"Production and POs","h":"From the torch to the shelf.","p":"What to make next, what to buy, and every purchase order in and out, tied to the same stock the stores sell from.","sample":"Sample batches, suppliers and POs.","tabs":[{"icon":"box","t":"Make next","h":"The studio knows what to make next.","p":"Ranked from stock, reorders due, open wholesale orders and waiting lists.","view":{"kind":"rows","title":"This week's batches","rows":[["Save the Bees Proxy Core","9 left · 3 shops and 64 shoppers waiting","Make 60","First","r",100],["Orchid Bowl Piece","12 left · on Lakeside's reorder","Make 48","Next","a",70],["Galactic Baby Beaker","23 left · back-in-stock list of 118","Make 24","This week","a",55],["Otter Dry Pipe","142 left · best seller","Make 72","Keep ahead","g",30]],"acts":[["Send to the studio",true]],"sub":"Ranked for the studio"}},{"icon":"draft","t":"Incoming POs","h":"A distributor's PO becomes an order draft.","p":"The PDF from the email is read line by line, matched to your SKUs and priced at their tier.","view":{"kind":"order","title":"PO #CD-4471 · read from email","sub":"Matched to 4 SKUs","acct":"Coastal Distribution","meta":"Distributor tier · Net 45 · ship by Nov 12","lines":[["Pivot Mouthpiece Case, 18 with display","g",4,229.5],["Otter Dry Pipe","g",36,29.75],["Duck Bowl Piece, 14mm","g",48,15.3],["Save the Bees Proxy Core","g",24,25.5]],"acts":[["Fix a line"],["Accept the PO",true]],"note":"Andre checks it before it's accepted."}},{"icon":"price","t":"Purchase orders","h":"Every PO you send, in one list.","p":"Glass, boxes and parts. Drafted when stock runs low, sent when a person approves.","view":{"kind":"table","title":"Open POs to suppliers","sub":"Sample suppliers","cols":["Supplier","For","Amount","Due","Status"],"hl":4,"rows":[["Color glass rod supplier","Color rod, 40 lb","$3,840","Nov 6","Approved"],["Borosilicate tubing","Clear tubing, 200 lb","$2,150","Nov 9","Sent"],["Box and foam supplier","Mailers and inserts","$980","Nov 4","Draft"],["Display maker","POP displays, 50","$1,600","Nov 20","Draft"]],"acts":[["Approve the drafts",true]],"note":"Nothing is sent without a press."}},{"icon":"truck","t":"Receiving","h":"Count it in once.","p":"A PO arrives, the count goes in, and both stores and the portal update.","view":{"kind":"rows","title":"Received today","rows":[["Color glass rod, 40 lb","PO #1182 · matches the PO","","Received","g"],["Mailers and inserts","PO #1179 · 200 short","","Short","r"],["Moonray x Empire, 12 pieces","Consigned from Moonray","","Counted","g"]],"acts":[["Tell the supplier it's short",true]],"note":"A draft, sent by a person.","sub":"Into one stock count"}},{"icon":"spark","t":"Batches and QC","h":"Every batch, checked and counted.","p":"Made, passed, broken, and how long each piece really takes.","view":{"kind":"rows","title":"Batches this week","rows":[["Otter Dry Pipe · 72","Made Mon to Wed · 70 passed","2 broke","Passed","g"],["Galactic Baby Beaker · 24","Made Tue to Thu · 21 passed","3 seconds","Passed","a"],["SPAM Musubi Dry Pipe · 36","In progress","","On the bench","b"]],"kpis":[["Pieces made","412"],["Passed QC","96%"],["Hours per beaker","1.6"]],"sub":"Studio log"}},{"icon":"users","t":"Artists","h":"Outside artists, paid right.","p":"Consigned pieces at Empire Smokes: what sold, what's owed, and when it's paid.","view":{"kind":"table","title":"Consignment, October","sub":"Sample split","cols":["Artist","Sold","Sales","Owed","Status"],"hl":3,"rows":[["Moonray","9","$2,460","$1,476","To pay"],["Anthea Glass","3","$450","$270","To pay"],["Trapper Studio","1","$300","$180","Paid"]],"acts":[["Add to the pay run",true]]}}]},{"id":"retail","eyebrow":"Empire Smokes, built in","h":"Marketing that sells the next drop.","p":"Email, texts, launches, reviews and posts for Empire Smokes, from the same marketing studio we built for another national brand.","sample":"Sample lists and numbers. Yours fill in once Klaviyo and the store are connected.","tabs":[{"icon":"cal","t":"Launch calendar","h":"Every drop, planned in one place.","p":"Each launch gets its email, text, posts and homepage, drafted together.","view":{"kind":"rows","title":"Drops · November","sub":"4 drops","rows":[["Nov 8 · Moonray x Empire, part 2","Email, text, Instagram, both stores","","Drafts ready","g"],["Nov 15 · Moonray to wholesale","Price list to 64 shops","","Drafts ready","g"],["Nov 28 · Black Friday","Email, text, homepage","","In progress","a"],["Dec 5 · Gift guide","Under $50, under $100","","Idea","b"]]}},{"icon":"mail","t":"Email","h":"Campaigns in Klaviyo or Mailchimp.","p":"Written in the Empire Smokes voice, sent to the right list.","view":{"kind":"mail","title":"Campaign draft","sub":"Klaviyo","to":"Collectors, 4,812 people","subj":"Sunshine Garden, part two","body":["Moonray and Empire made more. Six pieces, pressed flowers in clear glass, one of each.","Friday at noon, Pacific. Collectors get the link an hour early."],"acts":[["Edit"],["Schedule",true]],"note":"A person schedules every send."}},{"icon":"sms","t":"Texts","h":"Texts that sell out a drop.","p":"Postscript, Attentive or Klaviyo SMS. Opted in, 21 and over, quiet hours kept.","view":{"kind":"sms","title":"Text campaign","sub":"Postscript","to":"Empire Smokes","msgs":[["Empire Smokes: Sunshine Garden part 2 drops Fri at noon PT. Collectors get in at 11. Reply STOP to opt out."]],"acts":[["Send me a test"],["Schedule",true]]}},{"icon":"bell","t":"Back in stock","h":"Waiting lists that turn into sales.","p":"The day a piece is back, the note's ready.","view":{"kind":"rows","title":"Waiting lists","sub":"From the store","rows":[["Galactic Baby Beaker","118 people waiting","","Back Nov 10","b"],["Save the Bees Proxy Core","64 waiting","","Being made","a"],["Soju Bottle Peak Attachment","41 waiting","","Back today","g"]],"acts":[["Send the Soju note",true]]}},{"icon":"re","t":"Flows","h":"Flows that run in the background.","p":"Abandoned carts, thank-yous and winbacks, checked by a person before they go live.","view":{"kind":"rows","title":"Flows","sub":"In Klaviyo","rows":[["Abandoned cart","3 emails and a text","$4,920","Live","g"],["First order thank-you","Care tips for your glass","","Live","g"],["Winback, 120 days","Ready for your look","","Draft","a"]],"kpis":[["Abandoned cart","$4,920"],["Winback","$2,110"],["After purchase","$1,640"]]}},{"icon":"star","t":"Reviews","h":"A reply to every review.","p":"Drafted for each one. Problems become a replacement, tied to the order.","view":{"kind":"rows","title":"Reviews","sub":"This week","rows":[["“The otter is even cuter in person.”","5 stars · Otter Dry Pipe","","Reply drafted","g"],["“Arrived with a chip in the bowl.”","2 stars · Duck Bowl Piece","","Replacement ready","r"],["“Fast shipping, packed like gold.”","5 stars","","Reply drafted","g"]],"acts":[["Approve replies",true]]}},{"icon":"mega","t":"Posts","h":"Posts and graphics, on brand.","p":"For both accounts, in each brand's look.","view":{"kind":"rows","title":"Posts","sub":"This week","rows":[["Sunshine Garden teaser","Instagram carousel, 5 slides","","Ready","g"],["Drop countdown","3 story frames","","Ready","g"],["Donut pipes being made","Reel from studio footage","","Needs a look","a"]]}}]},{"id":"apis","eyebrow":"Connected","h":"Plugged into everything.","p":"The hub talks to the tools you already pay for, and to the ones that make the portal smarter.","sample":"The connections we'd set up first. Each one is switched on with you.","tabs":[{"icon":"truck","t":"Shipping","h":"Shipping, connected.","p":"Tracking, landed alerts and clean addresses.","view":{"kind":"grid","title":"Shipping","items":[["UPS","Tracking on every box, and a text to the rep when it lands","Landed alerts"],["USPS","Checks every new shop's address","Address check"],["ShipStation","One pick list for web and wholesale","Packing"],["FedEx","Rates and tracking for the bigger cases",""]]}},{"icon":"price","t":"Selling","h":"Every store and marketplace.","p":"Orders and stock, both ways.","view":{"kind":"grid","title":"Selling","items":[["Shopify, Empire Smokes","Orders, customers and stock","Two way"],["Shopify, Glassworks","Wholesale orders and price tiers","Two way"],["Faire","Wholesale orders from new shops","Orders in"],["LeafLink","Shops that buy on LeafLink",""],["Shopify Payments","Cards on file for wholesale","Payments"],["QuickBooks","Every order, by brand, every night","Books"]]}},{"icon":"mail","t":"Marketing","h":"Email, text and ads.","p":"Lists and segments built from real orders.","view":{"kind":"grid","title":"Marketing","items":[["Klaviyo","Lists, flows and campaigns","Email & SMS"],["Mailchimp","If that's what you use","Email"],["Postscript","Texts for Empire Smokes","SMS"],["Attentive","Texts and sign-up forms","SMS"],["Meta","Audiences from your best buyers","Ads"],["Google Merchant","Every piece on Google Shopping","Listings"]]}},{"icon":"phone","t":"Talk","h":"Texts, calls, email and alerts.","p":"Every conversation lands on the account.","view":{"kind":"grid","title":"Talk","items":[["Twilio","Texts and calls from the hub, on the shop's thread","Texts & calls"],["Gmail or Outlook","Every email filed under its shop","Inbox"],["Google Calendar","Visits, calls and trade shows","Calendar"],["Slack","Big orders and problems to the team","Alerts"]]}},{"icon":"search","t":"Data","h":"The smart stuff.","p":"Leads, checks and taxes.","view":{"kind":"grid","title":"Data","items":[["Google Places","Lead finder, store locator and closed-shop checks","Leads"],["Resale certificates","Checked on every application","Approvals"],["Sales tax","Rates by state, exemptions on file","Tax"],["Google Sheets","A live copy of any list","Export"]]}},{"icon":"spark","t":"AI & your API","h":"Ask it anything. Plug in anything.","p":"Plain English from any phone, and one feed for every partner.","view":{"kind":"grid","title":"AI and your own API","items":[["ChatGPT and Claude","Ask the hub from your phone: who's due, what's low, what landed","Phone"],["Drafts","Emails, texts, orders and replies, written for a person to send","AI"],["Distributor API","Partners pull price and stock from one feed","Your API"],["Webhooks","Any system hears about new orders the moment they land","Your API"]]}}]}]};
+if (new URLSearchParams(location.search).has("cap")) document.documentElement.classList.add("cap");
+(() => {
+  const C = window.CLIENT;
+  // every business, each logo filled with its own brand color
+  const LOGOS = C.logos;
+  const logo = ([k, src, c]) => `<span class="lg${c ? "" : " raw"}" style="--c:${c};--m:url(${src})"><img src="${src}" alt="${k}"></span>`;
+  document.getElementById("hubgrid").innerHTML = LOGOS.map(l => `<div class="t">${logo(l)}</div>`).join("");
+  const HOME = `<svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg>`;
+  const hubhomes = document.getElementById("hubhomes");
+  if (C.homes && C.homes.length) hubhomes.innerHTML = C.homes.map(h => `<span>${HOME}${h}</span>`).join(""); else hubhomes.remove();
+
+  // line icons for the in and out chips
+  const IC = { bed: "M3 18V7M3 14h18v4M21 14v-3a3 3 0 0 0-3-3h-7v6M7 11.5a1.5 1.5 0 1 0 0-.01", globe: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z", card: "M3 6h18v12H3zM3 10h18M7 15h4", ring: "M12 21a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM9 4l3-1 3 1-3 5z", ticket: "M3 8V6h18v2a2 2 0 0 0 0 4v2H3v-2a2 2 0 0 0 0-4zM10 6v10", clock: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3 2", book: "M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3zM4 17a3 3 0 0 1 3-3h11", mail: "M3 6h18v12H3zM3 7l9 6 9-6", users: "M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2.5 20c.8-3.5 3.3-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.8c1.7.8 2.7 2.6 3 5.2", grid: "M3 4h18v16H3zM3 9h18M3 14h18M9 4v16", db: "M12 3c4.4 0 8 1.3 8 3s-3.6 3-8 3-8-1.3-8-3 3.6-3 8-3zM4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3", chat: "M4 5h16v11H9l-5 4z" };
+  const svg = k => `<svg viewBox="0 0 24 24"><path d="${IC[k]}"/></svg>`;
+  const chips = (id, list) => document.getElementById(id).insertAdjacentHTML("beforeend", list.map(([i, b, sp]) => `<div class="chip">${svg(i)}<b>${b}</b>${sp ? `<span>${sp}</span>` : ""}</div>`).join(""));
+  chips("flowin", C.flow.in); chips("flowout", C.flow.out);
+
+  // the numbers on one screen (sample)
+  document.getElementById("kpis").innerHTML = C.dash.kpis.map(([k, b, d, ring]) => `<div class="kpi"><span class="k">${k}</span><b>${b}</b><span class="d">${d}</span>${ring ? `<div class="ring" style="--p:${ring}"></div>` : ""}</div>`).join("");
+  const BARS = C.dash.bars;
+  const max = BARS[0][1];
+  document.getElementById("bars").innerHTML = BARS.map(([n, v, c]) => `<div class="bar" style="--c:${c}"><span>${n}</span><i style="--w:${Math.round(v / max * 100)}"></i><em>$${(v / 1000).toFixed(1)}k</em></div>`).join("");
+  document.getElementById("panel2").innerHTML = C.dash.panel.map((p, i) => `<h4${i ? ' style="margin-top:8px"' : ""}>${p.h}</h4>` + (p.weeks
+    ? `<div class="wk">${p.weeks.split("").map(x => `<span class="${x}"></span>`).join("")}</div><div class="wk-key"><span><i style="background:#d2815f"></i>Booked</span><span><i style="background:#8c7a4f"></i>Held</span><span><i style="background:#34312f"></i>Open</span></div>`
+    : p.bars.map(([n, w, v]) => `<div class="bar" style="--c:${p.c || "#d2815f"}"><span>${n}</span><i style="--w:${w}"></i><em>${v}</em></div>`).join(""))).join("");
+
+  // data out: the snapshot email, the books, a text and the owner report (sample)
+  const S = C.out;
+  document.getElementById("snapmail").innerHTML = `<div class="mh"><b>Your Monday snapshot</b><span>From ${C.hub} · to ${S.snapTo}</span></div>
+    <div class="mb"><span style="color:#6b6560">${S.week} · both brands</span><div class="big">${S.total}</div>
+    <div class="row3">${S.stats.map(([a, b, c]) => `<div>${a}<b>${b}</b>${c}</div>`).join("")}</div><span style="color:#6b6560">${S.best}</span></div>`;
+  document.getElementById("ledger").innerHTML = `<div class="lh">${S.books}<span>Synced 6:00 AM</span></div><table>${S.ledger.map(([t, c, v]) => `<tr><td>${t}<span class="c">${c}</span></td><td>${v}</td></tr>`).join("")}</table>`;
+  document.getElementById("sms").innerHTML = `<span class="who">${C.hub}</span>` + S.texts.map(([t, me]) => `<div class="bub${me ? " me" : ""}">${t}</div>`).join("");
+
+  // ideas we can build
+  const BI = { cal: "M4 5h16v15H4zM4 10h16M9 3v4M15 3v4", broom: "M14 3l-4 9M7 12h8l3 9H4z", box: "M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10", music: "M9 18V5l11-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM20 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0z", swap: "M7 4l-4 4 4 4M3 8h14M17 20l4-4-4-4M21 16H7", gift: "M3 9h18v4H3zM5 13h14v8H5zM12 9v12M12 9c-2-4-6-4-6-1.5S10 9 12 9zm0 0c2-4 6-4 6-1.5S14 9 12 9z", star: "M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z", calc: "M5 3h14v18H5zM8 7h8M8 12h2M14 12h2M8 16h2M14 16h2", people: "M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM2 20c.6-3 2.9-5 6-5s5.4 2 6 5M17 11a2.5 2.5 0 1 0 0-5M18 14c2 .5 3.4 2.5 4 6M3 3h4", pay: "M3 6h18v12H3zM12 9.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM6 9v.01M18 15v.01", heart: "M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z", glass: "M7 3h10l-1 9a4 4 0 0 1-8 0zM12 16v5M8 21h8", card: "M3 6h18v12H3zM3 10h18M7 15h4", ticket: "M3 8V6h18v2a2 2 0 0 0 0 4v2H3v-2a2 2 0 0 0 0-4zM10 6v10", form: "M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h7", bed: "M3 18V7M3 14h18v4M21 14v-3a3 3 0 0 0-3-3h-7v6" };
+  const BUILDS = C.builds;
+  document.getElementById("builds").innerHTML = BUILDS.map(([i, h, p, f]) => `<div class="bld rise"><svg viewBox="0 0 24 24"><path d="${BI[i]}"/></svg><span class="for">${f}</span><h3>${h}</h3><p>${p}</p></div>`).join("");
+
+  if (C.tools) {
+  // the sales and marketing tools: each section gets a tab per tool, each a small mock of the screen (sample accounts)
+    const BR = C.brandTags || {}, WI = { day: "M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z", acct: "M4 21V5h10v16M14 9h6v12M7 9h4M7 13h4M7 17h4", re: "M20 11a8 8 0 0 0-14.5-4.5M4 4v4h4M4 13a8 8 0 0 0 14.5 4.5M20 20v-4h-4", draft: "M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h5", price: "M3 12V4h8l10 10-8 8zM7.5 7.5h.01", mail: "M3 6h18v12H3zM3 7l9 6 9-6", inbox: "M3 13l3-8h12l3 8v6H3zM3 13h5l1 3h6l1-3h5", truck: "M2 6h12v10H2zM14 10h4l3 3v3h-7M6 19a2 2 0 1 0 0-.01M17 19a2 2 0 1 0 0-.01", gift: "M3 9h18v4H3zM5 13h14v8H5zM12 9v12M12 9c-2-4-6-4-6-1.5S10 9 12 9zm0 0c2-4 6-4 6-1.5S14 9 12 9z", pct: "M19 5L5 19M7 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", box: "M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10", apply: "M9 11l3 3 8-8M20 12v7H4V5h11", users: "M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2.5 20c.8-3.5 3.3-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.8c1.7.8 2.7 2.6 3 5.2", pin: "M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11zM12 7.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5", phone: "M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2", sms: "M4 5h16v11H9l-5 4zM8 10h8M8 13h5", mega: "M3 10v4h4l7 4V6L7 10zM17 9a4 4 0 0 1 0 6M7 14l1 5h2", star: "M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z", bell: "M6 16V11a6 6 0 0 1 12 0v5l2 2H4zM10 21h4", spark: "M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z", flag: "M5 21V4h11l-1.5 4L16 12H5", search: "M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4", cal: "M4 5h16v15H4zM4 10h16M9 3v4M15 3v4" };
+    const br = t => String(t).replace(/\[(\w+)\]/g, (m, k) => BR[k] ? `<span class="ws-br" style="background:${BR[k][1]}">${BR[k][0]}</span>` : m);
+    const pill = (t, c) => t ? `<span class="ws-pill ${c || ""}">${t}</span>` : "";
+    const top = v => `<div class="ws-top"><b>${v.title}</b>${v.sub ? `<span>${v.sub}</span>` : ""}</div>`;
+    const acts = v => v.acts ? `<div class="ws-acts">${v.acts.map(([t, go]) => `<span class="b${go ? " go" : ""}">${t}</span>`).join("")}${v.note ? `<span class="n">${v.note}</span>` : ""}</div>` : "";
+    const VIEW = {
+      rows: v => top(v) + (v.kpis ? `<div class="ws-kp">${v.kpis.map(([k, b]) => `<div><span>${k}</span><b>${b}</b></div>`).join("")}</div>` : "")
+        + v.rows.map(([m, s, r, p, c, w]) => `<div class="ws-row"><span class="m">${br(m)}</span><span class="s">${br(s)}</span><span class="r">${r ? `<span>${r}</span>` : ""}${w != null ? `<span class="ws-meter" style="--c:${c === "r" ? "#e08a7b" : c === "a" ? "#d2815f" : "#a9c6a6"}"><i style="--w:${w}"></i></span>` : ""}${pill(p, c)}</span></div>`).join("") + acts(v),
+      table: v => top(v) + `<div class="ws-scroll"><table class="ws-tbl"><tr>${v.cols.map(c => `<th>${c}</th>`).join("")}</tr>${v.rows.map(r => `<tr>${r.map((c, i) => `<td${v.hl === i ? ' class="hl"' : ""}>${br(c)}</td>`).join("")}</tr>`).join("")}</table></div>` + acts(v),
+      mail: v => top(v) + `<div class="ws-doc"><div class="hd"><span>To <b>${v.to}</b></span><span>Subject: ${v.subj}</span></div>${v.body.map(p => `<p>${p}</p>`).join("")}</div>` + acts(v),
+      grid: v => top(v) + `<div class="ws-grid">${v.items.map(([n, t, c]) => `<div><b>${n}</b><span>${t}</span>${c ? `<em>${c}</em>` : ""}</div>`).join("")}</div>` + acts(v),
+      sms: v => top(v) + `<div class="ws-phone"><span class="who">${v.to}</span>${v.msgs.map(([t, me]) => `<div class="ws-bub${me ? " me" : ""}">${t}</div>`).join("")}</div>` + acts(v),
+      order: v => {
+        const tot = v.lines.reduce((a, l) => a + l[2] * l[3], 0);
+        return top(v) + `<div class="ws-doc"><div class="hd"><b>${v.acct}</b><span>${v.meta}</span></div>${v.lines.map(([n, b, q, p]) => `<div class="ws-ln"><span>${br(`[${b}]`)} ${n}</span><em>${q} × $${p.toFixed(2)}</em><b>$${(q * p).toLocaleString("en-US", { minimumFractionDigits: 2 })}</b></div>`).join("")}<div class="ws-tot"><span>Total</span><span>$${tot.toLocaleString("en-US", { minimumFractionDigits: 2 })}</span></div></div>` + acts(v);
+      },
+    };
+    const host = document.getElementById("toolsecs");
+    host.innerHTML = C.tools.map((W, n) => `<section class="sect ws${n % 2 ? " alt" : ""}" id="${W.id}"><div class="wrap">
+      <div class="head rise"><span class="eyebrow">${W.eyebrow}</span><h2>${W.h}</h2><p>${W.p}</p></div>
+      <div class="ws-box rise"><div class="ws-tabs" role="tablist"></div><div class="ws-stage"><div class="ws-cap"></div><div class="ws-view"></div></div></div>
+      <p class="sample rise">${W.sample || "Sample accounts and numbers. Yours fill in once both brands are connected."}</p></div></section>`).join("");
+    // ?ws=<section>.<tab> opens a tab and scrolls to it (for the screenshots)
+    const pick = (new URLSearchParams(location.search).get("ws") || "").split(".");
+    C.tools.forEach((W, n) => {
+      const sec = host.children[n], tabs = sec.querySelector(".ws-tabs"), cap = sec.querySelector(".ws-cap"), view = sec.querySelector(".ws-view");
+      tabs.innerHTML = W.tabs.map((t, i) => `<button type="button" role="tab" aria-selected="${i === 0}" data-i="${i}"><svg viewBox="0 0 24 24"><path d="${WI[t.icon] || WI.box}"/></svg>${t.t}</button>`).join("");
+      const show = i => {
+        const t = W.tabs[i];
+        [...tabs.children].forEach((b, j) => b.setAttribute("aria-selected", String(j === i)));
+        cap.innerHTML = `<h3>${t.h}</h3><p>${t.p}</p>`;
+        view.style.animation = "none"; view.offsetHeight; view.style.animation = "";
+        view.innerHTML = VIEW[t.view.kind](t.view);
+      };
+      tabs.addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; show(+b.dataset.i); if (innerWidth <= 900) b.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" }); });
+      show(W.id === pick[0] ? +pick[1] || 0 : 0);
+      if (W.id === pick[0]) requestAnimationFrame(() => { sec.querySelectorAll(".rise").forEach(el => el.classList.add("in")); sec.querySelector(".ws-box").scrollIntoView({ behavior: "instant" }); });
+      // &solo shows just that one screen, for the opening video's back-end shots
+      if (W.id === pick[0] && new URLSearchParams(location.search).has("solo")) { document.body.className = "solo"; document.body.replaceChildren(Object.assign(document.createElement("div"), { className: "solo-wrap" })); document.querySelector(".solo-wrap").append(view); }
+    });
+  }
+
+  // what they use today: tap to mark; just for the conversation
+  const USES = C.uses;
+  const uses = document.getElementById("uses"), usesk = document.getElementById("usesk");
+  uses.innerHTML = USES.map(u => `<button type="button" aria-pressed="false">${u}</button>`).join("");
+  uses.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    b.setAttribute("aria-pressed", String(b.getAttribute("aria-pressed") !== "true"));
+    const n = uses.querySelectorAll('[aria-pressed="true"]').length;
+    usesk.textContent = n ? `${n} connected. We'll plug ${n === 1 ? "it" : "them"} into ${C.hub}.` : "Tap what you use today.";
+  });
+
+  // who runs what: opens their own email app with a note to the contact ready to send (works on phones too)
+  const whoform = document.getElementById("whoform"), whosent = document.getElementById("whosent");
+  whoform.addEventListener("submit", e => {
+    e.preventDefault();
+    const picked = [...uses.querySelectorAll('[aria-pressed="true"]')].map(b => b.textContent).join(", ") || "(none tapped)";
+    const body = [`Name: ${whoform.person.value.trim()}`, `Email: ${whoform.email.value.trim()}`, `Role: ${whoform.role.value.trim()}`, `Tools we use: ${picked}`, "", "Who runs what:", whoform.who.value.trim()].join("\n");
+    location.href = `mailto:${C.contact.email}?subject=${encodeURIComponent(`${C.hub}: who runs what`)}&body=${encodeURIComponent(body)}`;
+    whosent.textContent = "Your email opens with the note ready. Press send there."; whosent.hidden = false;
+  });
+
+  // a staff member typing an update
+  document.getElementById("editor").innerHTML = C.editor.rows.map(([who, what], i) => `<div class="row"><div>${who}<br>${i ? `<span>${what}</span>` : `<span class="typing" id="typing"></span>`}</div><span class="btn">${i ? "Live" : "Publish"}</span></div>`).join("");
+  const typed = C.editor.rows[0][1], tEl = document.getElementById("typing"); let ti = 0;
+  const type = () => { tEl.textContent = typed.slice(0, ti); ti = ti > typed.length + 14 ? 0 : ti + 1; setTimeout(type, ti === 0 ? 600 : 110); };
+  type();
+
+  // sliders: swipe, arrows, dots, and a slow auto-advance until someone takes over
+  function slider(el, slides, onChange) {
+    el.innerHTML = `<div class="track">${slides.map(x => `<div class="slide"><img class="shot" src="${x.src}" alt="" loading="lazy">${x.tag || ""}</div>`).join("")}</div>
+      <div class="ctrl"><div class="dots">${slides.map((_, i) => `<button type="button" aria-label="Slide ${i + 1}"></button>`).join("")}</div>
+      <div class="arrows"><button type="button" data-d="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" data-d="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></div>`;
+    const track = el.querySelector(".track"), dots = [...el.querySelectorAll(".dots button")];
+    let cur = 0, auto = true;
+    const go = i => { cur = (i + slides.length) % slides.length; track.scrollTo({ left: cur * track.clientWidth, behavior: "smooth" }); };
+    const mark = () => { const i = Math.round(track.scrollLeft / track.clientWidth); cur = i; dots.forEach((d, j) => d.setAttribute("aria-current", String(j === i))); onChange && onChange(i); };
+    track.addEventListener("scroll", () => { clearTimeout(track._t); track._t = setTimeout(mark, 80); });
+    const stop = () => { auto = false; };
+    track.addEventListener("pointerdown", stop); track.addEventListener("touchstart", stop, { passive: true });
+    dots.forEach((d, i) => d.onclick = () => { stop(); go(i); });
+    el.querySelectorAll(".arrows button").forEach(b => b.onclick = () => { stop(); go(cur + +b.dataset.d); });
+    setInterval(() => { if (auto && el.getBoundingClientRect().top < innerHeight && el.getBoundingClientRect().bottom > 0) go(cur + 1); }, 4200);
+    mark();
+    return { go: i => { stop(); go(i); } };
+  }
+  const A = C.front.slides;
+  const capA = document.getElementById("cap-a");
+  slider(document.getElementById("sl-a"), A.map(([src]) => ({ src })), i => { capA.textContent = A[i][1]; });
+  const SITES = C.front.sites;
+  const byKey = Object.fromEntries(LOGOS.map(l => [l[0], l]));
+  const doms = document.getElementById("doms");
+  doms.innerHTML = SITES.map(([, u]) => `<button type="button">${u}</button>`).join("");
+  const sb = slider(document.getElementById("sl-b"), SITES.map(([k, u, src]) => ({ src, tag: `<div class="tag">${byKey[k] ? logo(byKey[k]) : ""}<span>${u}</span></div>` })), i => [...doms.children].forEach((b, j) => b.setAttribute("aria-current", String(j === i))));
+  [...doms.children].forEach((b, i) => b.onclick = () => sb.go(i));
+
+  const $k = n => "$" + n.toLocaleString("en-US");
+  if (C.bands) {
+  // band nights: fee, door, register, and what the night made over a normal one (sample)
+    const NORMAL = C.bands.normal, NIGHTS = C.bands.nights;
+    document.getElementById("bandwho").innerHTML = `${logo(C.bands.logo)}<span>${C.bands.label}</span>`;
+    document.getElementById("bandnormal").innerHTML = `A normal Friday rings up <b>${$k(NORMAL.Fri)}</b>. A normal Saturday, <b>${$k(NORMAL.Sat)}</b>.`;
+    const rows = NIGHTS.map(([d, dt, band, fee, door, reg]) => ({ d, dt, band, fee, door, reg, made: reg - NORMAL[d] - fee }));
+    const top = Math.max(...rows.map(r => Math.abs(r.made)));
+    document.getElementById("brows").innerHTML = rows.map(r => {
+      const v = r.made > 1000 ? ["keep", "Book again"] : r.made > 0 ? ["maybe", "Worth a talk"] : ["re", "Rethink"];
+      const w = Math.round(Math.abs(r.made) / top * 100), sg = r.made >= 0 ? "pos" : "neg";
+      return `<div class="brow"><div class="nm"><b>${r.band}</b><span>${r.d} ${r.dt}</span></div><span class="c" data-k="Paid">${$k(r.fee)}</span><span class="c" data-k="Door">${r.door}</span><span class="c" data-k="Register">${$k(r.reg)}</span>
+        <div class="lift"><i class="${sg}" style="--w:${w}"></i><em class="${sg}">${r.made >= 0 ? "+" : "−"}${$k(Math.abs(r.made))}</em></div><span class="verdict ${v[0]}">${v[1]}</span></div>`;
+    }).join("");
+    const tot = k => rows.reduce((a, r) => a + r[k], 0);
+    document.getElementById("bsum").innerHTML = `<div><span>Paid to bands</span><b>${$k(tot("fee"))}</b></div><div><span>Came in the door</span><b>${tot("door")}</b></div><div><span>Register</span><b>${$k(tot("reg"))}</b></div><div class="up"><span>Made over normal nights</span><b>+${$k(tot("made"))}</b></div>`;
+  }
+
+  if (C.party) {
+  // one party, every dollar (sample)
+    const P_IN = C.party.in, P_OUT = C.party.out, X = P_IN.findIndex(x => x[3]);
+    document.getElementById("partywho").innerHTML = `${logo(C.party.logo)}<span>${C.party.label}</span>`;
+    const pin = P_IN.reduce((a, x) => a + x[1], 0), pout = P_OUT.reduce((a, x) => a + x[1], 0), extra = X < 0 ? 0 : P_IN[X][1], party = pin - extra;
+    document.getElementById("p-in").innerHTML = P_IN.map(([n, v, t]) => `<div class="ln"><span>${n}${t ? `<em>${t}</em>` : ""}</span><b>${$k(v)}</b></div>`).join("");
+    document.getElementById("p-out").innerHTML = P_OUT.map(([n, v]) => `<div class="ln cost"><span>${n}</span><b>−${$k(v)}</b></div>`).join("");
+    document.getElementById("p-made").textContent = $k(pin - pout);
+    document.getElementById("p-margin").textContent = `${Math.round((pin - pout) / pin * 100)}% of ${$k(pin)} brought in`;
+    document.getElementById("p-split").innerHTML = `<i class="a" style="width:${party / pin * 100}%"></i><i class="b" style="width:${extra / pin * 100}%"></i>`;
+    document.getElementById("p-note").innerHTML = `Without the ${C.party.extraShort} it drove, the ${C.party.noun} made <b>${$k(party - pout)}</b>. The ${C.party.extraShort} are <b>${Math.round(extra / (pin - pout) * 100)}%</b> of the profit, and no one would see that in one brand's books.`;
+  }
+
+  if (C.ask) {
+  // ask anything: a few sample questions with their answers
+    const ASK = C.ask;
+    const askq = document.getElementById("askq"), askout = document.getElementById("askout");
+    document.getElementById("asks").innerHTML = ASK.map((x, i) => `<button type="button" data-i="${i}">${x.q}</button>`).join("");
+    const answer = x => {
+      if (!x) { askout.innerHTML = `<div class="ans">In the real ${C.hub}, this answers from your own numbers.</div><p class="sub">For now, try one of the questions above.</p>`; return; }
+      const top = Math.max(...x.rows.map(r => r[r.length - 1]));
+      const fmtv = v => x.pct ? v + "%" : $k(v);
+      askout.innerHTML = `<div class="ans">${x.a}</div><p class="sub">${x.sub}</p>${x.key ? `<div class="ask-key"><span><i style="background:#e2ddd8"></i>${x.key[0]}</span><span><i style="background:#c35121"></i>${x.key[1]}</span></div>` : ""}
+        <div style="display:grid;gap:12px">${x.rows.map(r => x.one ? `<div class="pair"><span>${r[0]}</span><div class="bars"><i class="b" style="--w:0" data-w="${r[1] / top * 100}"></i></div><em>${fmtv(r[1])}</em></div>`
+          : `<div class="pair"><span>${r[0]}</span><div class="bars"><i class="a" style="--w:0" data-w="${r[1] / top * 100}"></i><i class="b" style="--w:0" data-w="${r[2] / top * 100}"></i></div><em>+${Math.round((r[2] / r[1] - 1) * 100)}%</em></div>`).join("")}</div>`;
+      requestAnimationFrame(() => requestAnimationFrame(() => askout.querySelectorAll("[data-w]").forEach(i => i.style.setProperty("--w", i.dataset.w))));
+    };
+    const ask = (x, text) => {
+      askq.value = text; askout.innerHTML = `<div class="thinking"><i></i><i></i><i></i><span>Reading both brands' numbers</span></div>`;
+      setTimeout(() => answer(x), 900);
+    };
+    document.getElementById("asks").addEventListener("click", e => { const b = e.target.closest("button"); if (b) ask(ASK[b.dataset.i], ASK[b.dataset.i].q); });
+    document.getElementById("askf").addEventListener("submit", e => { e.preventDefault(); const t = askq.value.trim().toLowerCase(); ask(ASK.find(x => x.q.toLowerCase() === t), askq.value); });
+    askq.value = ASK[0].q; answer(ASK[0]);
+  }
+
+  // want to go deeper: the pop-out, a worked example of hours given back, and an email to the contact with the headings to fill in
+  const deep = document.getElementById("deep"), dsal = document.getElementById("dsal");
+  const TASKS = C.deep.tasks;
+  const dtasks = document.getElementById("dtasks");
+  dtasks.innerHTML = `<div class="dt hd"><span>Every week</span><span>Today</span><span>With ${C.hubShort}</span></div>` + TASKS.map(([t, a, b], i) => `<div class="dt"><span>${t}</span><input type="number" min="0" step=".5" value="${a}" data-i="${i}" aria-label="Hours today"><span class="after">${b} hr</span></div>`).join("");
+  const calc = () => {
+    const sal = +dsal.value || 0, rate = sal / 2080;
+    const saved = [...dtasks.querySelectorAll("input")].reduce((a, inp) => a + Math.max(0, (+inp.value || 0) - TASKS[inp.dataset.i][2]), 0);
+    const yr = saved * 50;
+    document.getElementById("drate").textContent = `About $${rate.toFixed(2)} an hour`;
+    document.getElementById("dres").innerHTML = `<div><span>Hours back each week</span><b>${saved.toFixed(1)}</b></div><div><span>Hours back each year</span><b>${Math.round(yr)}</b></div><div class="g"><span>Worth each year</span><b>${$k(Math.round(yr * rate / 100) * 100)}</b></div>`;
+  };
+  dsal.addEventListener("input", calc); dtasks.addEventListener("input", calc); calc();
+  document.getElementById("deepopen").onclick = () => deep.showModal();
+  // ask your team opens straight to the team list, ready for the first name
+  document.getElementById("teamopen").onclick = () => {
+    deep.showModal();
+    requestAnimationFrame(() => { deep.scrollTop = deep.querySelector(".deep-team").offsetTop - 16; document.querySelector("#dtadd [name=n]").focus({ preventScroll: true }); });
+  };
+  document.getElementById("deepclose").onclick = () => deep.close();
+  deep.addEventListener("click", e => { if (e.target === deep) deep.close(); });
+  // ask your team: each person gets their own survey link (name and department only); the list with salaries stays with the owner
+  const SURVEY = C.publish.base + "survey.html";
+  const roster = document.getElementById("roster");
+  let team = []; try { team = JSON.parse(localStorage.getItem(C.id + "-team") || "[]"); } catch {}
+  const keep = () => { try { localStorage.setItem(C.id + "-team", JSON.stringify(team)); } catch {} };
+  const linkFor = p => `${SURVEY}?n=${encodeURIComponent(p.n)}${p.d ? `&d=${encodeURIComponent(p.d)}` : ""}`;
+  const askMsg = p => `Hi ${p.n.split(" ")[0]}, we're exploring building ${C.hub}, an operations hub to make work easier for everyone. Could you take 5 minutes to tell us how your day goes? ${linkFor(p)}`;
+  const drawTeam = () => {
+    roster.innerHTML = team.map((p, i) => `<div class="rp"><div><b>${esc(p.n)}</b><div class="meta">${esc(p.d || "No department")}${p.s ? ` · ${$k(+p.s)} a year` : ""}</div></div>
+      <div class="acts"><button type="button" data-a="copy" data-i="${i}">Copy link</button><a href="sms:?&body=${encodeURIComponent(askMsg(p))}">Text</a><a href="mailto:?subject=${encodeURIComponent("A few quick questions about your day")}&body=${encodeURIComponent(askMsg(p))}">Email</a><button type="button" class="x" data-a="del" data-i="${i}" aria-label="Remove ${esc(p.n)}">×</button></div></div>`).join("");
+  };
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  document.getElementById("dtadd").addEventListener("submit", e => {
+    e.preventDefault(); const f = e.target; if (!f.n.value.trim()) return;
+    team.push({ n: f.n.value.trim(), d: f.d.value.trim(), s: f.s.value }); keep(); drawTeam(); f.reset(); f.n.focus();
+  });
+  roster.addEventListener("click", async e => {
+    const b = e.target.closest("button"); if (!b) return; const p = team[b.dataset.i];
+    if (b.dataset.a === "del") { team.splice(b.dataset.i, 1); keep(); drawTeam(); return; }
+    try { await navigator.clipboard.writeText(linkFor(p)); b.textContent = "Copied"; } catch { prompt("Copy this link", linkFor(p)); }
+    setTimeout(() => { b.textContent = "Copy link"; }, 1600);
+  });
+  drawTeam();
+  document.getElementById("deepsend").onclick = () => {
+    const list = team.length ? ["Team I'm sending the survey to:", ...team.map(p => `  ${p.n}, ${p.d || "no department"}${p.s ? `, $${(+p.s).toLocaleString("en-US")} a year` : ""}`), ""] : [];
+    const body = [...list, "Departments, and who's in each:", "", "Salaries or pay ranges:", "", "Overhead (rent, insurance, utilities):", "", "Software, and what each costs:", "", "The jobs that eat the most time:", "", "(A spreadsheet is fine. Attach it here.)"].join("\n");
+    location.href = `mailto:${C.contact.email}?subject=${encodeURIComponent(`${C.hub}: going deeper`)}&body=${encodeURIComponent(body)}`;
+  };
+
+  // schedule a call: an email asking for a day and time, sent from their own app
+  document.getElementById("callbtn").onclick = () => {
+    const d = document.getElementById("callday").value, t = document.getElementById("calltime").value;
+    const day = d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" }) : "a day that works for you";
+    const who = document.getElementById("callname").value.trim(), em = document.getElementById("callemail").value.trim();
+    const body = [`I'd like to set up a call about ${C.hub}.`, "", `Day: ${day}`, `Time: ${t}`, "", `Name: ${who}`, `Email: ${em}`, "Best number to reach me:", "Who else should join:"].join("\n");
+    location.href = `mailto:${C.contact.email}?subject=${encodeURIComponent(`${C.hub}: schedule a call`)}&body=${encodeURIComponent(body)}`;
+  };
+
+  // town center in chatgpt: the three points beside the phone video
+  if (C.chatgpt) document.getElementById("gptpts").innerHTML = C.chatgpt.points.map(([b, p]) => `<li><b>${b}</b>${p}</li>`).join("");
+
+  // fade sections in as they scroll into view
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .15 });
+  document.querySelectorAll(".rise").forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
